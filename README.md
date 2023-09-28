@@ -5,4 +5,4 @@ Linguagem utilizada: Java;
 
 José Gabriel Silva Pereira;
 
-Yuri Luiz Silva Nascimento; 
+Yuri Luiz Silva do Nascimento; 
