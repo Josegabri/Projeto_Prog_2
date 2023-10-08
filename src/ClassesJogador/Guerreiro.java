@@ -5,22 +5,24 @@ public class Guerreiro extends Jogador {
         super(nome);
     }
 
+
     @Override
-    double dano() {
-        return 15;
+    public double dano() {
+        return super.dano();
     }
 
     @Override
-    double hp() {
-        return 20;
+    public double hp() {
+        return super.hp();
     }
 
     @Override
-    double st() {
-        return 10;
+    public double st() {
+        return super.st();
     }
 
-//    @Override
+
+    //    @Override
 //    double danoBasico() {
 //        return 0;
 //    }

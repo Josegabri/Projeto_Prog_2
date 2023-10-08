@@ -4,25 +4,24 @@ public class Mago extends Jogador {
 
     public Mago(String nome) {
         super(nome);
-
     }
 
     @Override
-    double dano() {
-        return 20;
+    public double dano() {
+        return super.dano();
     }
 
     @Override
-    double hp() {
-        return 10;
+    public double hp() {
+        return super.hp();
     }
 
     @Override
-    double st() {
-        return 10;
+    public double st() {
+        return super.st();
     }
 
-//    @Override
+    //    @Override
 //    double danoBasico() {
 //        return 0;
 //    }
