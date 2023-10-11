@@ -7,7 +7,7 @@ public class Arqueiro extends Jogador{
 
     @Override
     public double dano() {
-        return 10;
+        return 14;
     }
 
     @Override

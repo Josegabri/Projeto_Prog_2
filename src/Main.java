@@ -12,15 +12,9 @@ public class Main {
         int classe = scanner.nextInt();
         System.out.print("Escolha seu nome: ");
         String nome = scanner.nextLine();
-        Batalha batalha = new Batalha();
-        switch (classe){
-            case 1:
-                batalha.escolha(new Arqueiro(nome));
-            case 2:
-                batalha.escolha(new Guerreiro(nome));
-            case 3:
-                batalha.escolha(new Mago(nome));
-        }
+        scanner.nextLine();
+        Batalha batalha = new Batalha(nome, classe);
+        batalha.batalha();
 
     }
 }
