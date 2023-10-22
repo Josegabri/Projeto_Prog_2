@@ -1,27 +1,14 @@
 package ClassesJogador;
 
-public class Arqueiro extends Jogador{
-
+public class Caveira extends Inimigo{
     protected double dano = 10;
     protected double hp = 20;
-    protected double st = 10;
-
-    public Arqueiro(String nome) {
-        super(nome);
+    public Caveira(String nome) {
+        super("caveira");
     }
 
     @Override
     double causarDano() {
-        return 0;
-    }
-
-    @Override
-    double usarSt() {
-        return 0;
-    }
-
-    @Override
-    double mostrarSt() {
         return 0;
     }
 

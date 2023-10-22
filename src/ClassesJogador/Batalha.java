@@ -27,6 +27,7 @@ public class Batalha{
 
     public void batalha(){
         Object classe = this.escolha(new Mago(this.nome));
+        Object inimigo = new Cachorro("cachorro");
         switch (this.opcao){
             case 1:
                 classe = this.escolha(new Arqueiro(nome));
@@ -38,7 +39,14 @@ public class Batalha{
                 classe = this.escolha(new Mago(nome));
                 break;
         }
-        ((Jogador) classe).dano();
+        Jogador classe1 = (Jogador) classe;
+        Inimigo inimigo2 = (Inimigo) inimigo;
+        System.out.println(inimigo2.causarDano());
+        System.out.println(classe1.mostrarHp());
+        classe1.receberDano(inimigo2.causarDano());
+        System.out.println(classe1.mostrarHp());
+
+
 
     }
 

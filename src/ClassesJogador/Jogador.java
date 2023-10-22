@@ -1,13 +1,10 @@
 package ClassesJogador;
 
-abstract class Jogador {
-    protected String nome;
+abstract class Jogador extends Propriedades{
 
     public Jogador(String nome) {
-        this.nome = nome;
+        super(nome);
     }
-
-    abstract double dano();
-    abstract double hp();
-    abstract double st();
+    abstract double usarSt();
+    abstract double mostrarSt();
 }
