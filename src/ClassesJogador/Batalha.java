@@ -25,29 +25,29 @@ public class Batalha{
         return new Mago(this.nome);
     }
 
-    public void batalha(){
-        Object classe = this.escolha(new Mago(this.nome));
-        Object inimigo = new Cachorro("cachorro");
+    public Object escolha(int opcao){
+        opcao = this.opcao;
         switch (this.opcao){
             case 1:
-                classe = this.escolha(new Arqueiro(nome));
-                break;
+                return new Mago(this.nome);
             case 2:
-                classe = this.escolha(new Guerreiro(nome));
-                break;
+                return new Guerreiro(this.nome);
             case 3:
-                classe = this.escolha(new Mago(nome));
-                break;
+                return new Arqueiro(this.nome);
+            default:
+                return null;
         }
-        Jogador classe1 = (Jogador) classe;
+    }
+
+    public void batalha(){
+        Object classe = escolha(this.opcao);
+        Object inimigo = new Cachorro("cachorro");
+        Jogador classe_convert = (Jogador) classe;
         Inimigo inimigo2 = (Inimigo) inimigo;
         System.out.println(inimigo2.causarDano());
-        System.out.println(classe1.mostrarHp());
-        classe1.receberDano(inimigo2.causarDano());
-        System.out.println(classe1.mostrarHp());
-
-
-
+        System.out.println(classe_convert.mostrarHp());
+        classe_convert.receberDano(inimigo2.causarDano());
+        System.out.println(classe_convert.mostrarHp());
     }
 
 }
