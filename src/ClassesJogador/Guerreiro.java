@@ -12,18 +12,19 @@ public class Guerreiro extends Jogador{
 
     @Override
     double causarDano() {
-        return 0;
+        return this.dano;
     }
 
-    @Override
+    @Override // ainda para ser alterado
     double usarSt() {
-        return 0;
+        this.st -= 7 ;
+        return this.dano+4;
     }
 
     @Override
     double receberDano(double dano) {
-        System.out.println("Você recebeu " + this.dano + " de dano");
-        return 0;
+        this.hp -= dano;
+        return this.hp;
     }
 
     @Override
@@ -33,12 +34,12 @@ public class Guerreiro extends Jogador{
 
     @Override
     double mostrarDano() {
-        return 0;
+        return this.dano;
     }
 
     @Override
     double mostrarSt() {
-        return 0;
+        return this.st;
     }
 }
 

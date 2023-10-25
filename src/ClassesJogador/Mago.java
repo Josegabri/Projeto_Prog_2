@@ -22,7 +22,6 @@ public class Mago extends Jogador{
     @Override
     double receberDano(double dano) {
         this.hp -= dano;
-        System.out.println("Você recebeu " + dano + " de dano");
         return this.hp;
     }
 
@@ -33,7 +32,7 @@ public class Mago extends Jogador{
 
     @Override
     double mostrarDano() {
-        return 0;
+        return this.dano;
     }
 
     @Override

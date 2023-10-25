@@ -2,7 +2,7 @@ package ClassesJogador;
 
 public class Cachorro extends Inimigo{
     protected double dano = 2;
-    protected double hp = 20;
+    protected double hp = 15;
 
     public Cachorro(String nome) {
         super(nome);
@@ -10,21 +10,22 @@ public class Cachorro extends Inimigo{
 
     @Override
     double causarDano() {
-        return 2;
+        return this.dano;
     }
 
     @Override
     double receberDano(double dano) {
-        return 10;
+        this.hp -= dano;
+        return this.hp;
     }
 
     @Override
     double mostrarHp() {
-        return 0;
+        return this.hp;
     }
 
     @Override
     double mostrarDano() {
-        return 0;
+        return this.dano;
     }
 }

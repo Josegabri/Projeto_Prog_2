@@ -12,31 +12,32 @@ public class Arqueiro extends Jogador{
 
     @Override
     double causarDano() {
-        return 0;
+        return this.dano;
     }
 
-    @Override
+    @Override // alterar
     double usarSt() {
         return 0;
     }
 
     @Override
     double mostrarSt() {
-        return 0;
+        return this.st;
     }
 
     @Override
     double receberDano(double dano) {
-        return 0;
+        this.hp -= dano;
+        return this.hp;
     }
 
     @Override
     double mostrarHp() {
-        return 0;
+        return this.hp;
     }
 
     @Override
     double mostrarDano() {
-        return 0;
+        return this.dano;
     }
 }

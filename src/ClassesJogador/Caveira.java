@@ -9,21 +9,22 @@ public class Caveira extends Inimigo{
 
     @Override
     double causarDano() {
-        return 0;
+        return this.dano;
     }
 
     @Override
     double receberDano(double dano) {
-        return 0;
+        this.hp -= dano;
+        return this.hp;
     }
 
     @Override
     double mostrarHp() {
-        return 0;
+        return this.hp;
     }
 
     @Override
     double mostrarDano() {
-        return 0;
+        return this.dano;
     }
 }
