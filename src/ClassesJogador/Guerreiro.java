@@ -41,5 +41,14 @@ public class Guerreiro extends Jogador{
     double mostrarSt() {
         return this.st;
     }
+
+    @Override
+    void aumentarDano(double item) {
+        this.dano += item;
+    }
+
+    @Override
+    void aumentarHp(double item) {
+    }
 }
 

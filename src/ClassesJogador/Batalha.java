@@ -1,9 +1,14 @@
 package ClassesJogador;
 
+import java.util.Random;
+
 public class Batalha{
     private String nome;
     private int opcao;
     private String ganhador;
+
+    private Item item;
+    private Random aleatorio;
 
     public Batalha(String nome, int opcao) {
         this.nome = nome;
@@ -35,10 +40,21 @@ public class Batalha{
         }
     }
 
+    public Object inimigo(int aleatorio){
+        switch (aleatorio){
+            case 0:
+                return new Caveira("Caveira");
+            case 1:
+                return new Cachorro("Cachorro");
+            default:
+                return null;
+        }
+    }
+
     public void batalha(){
-        
+        this.aleatorio = new Random();
         Object classe = escolha(this.opcao);
-        Object inimigo = new Cachorro("cachorro");
+        Object inimigo = inimigo(this.aleatorio.nextInt(2));
         Jogador classe_convert = (Jogador) classe;
         Inimigo inimigo2 = (Inimigo) inimigo;
        
@@ -77,6 +93,11 @@ public class Batalha{
             else if ( inimigo2.mostrarHp() <= 0 ){
                 ganhador = classe_convert.nome;
                 System.out.println("\nO vencedor da batalha foi "+classe_convert.nome);
+
+                System.out.println("\nDano antes do item: " + classe_convert.mostrarDano());
+                Item item = new Item(1);
+                classe_convert.aumentarDano(item.espada());
+                System.out.println("Dano após o equipamento do item: " + classe_convert.mostrarDano());
             }
         }        
     }

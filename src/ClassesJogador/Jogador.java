@@ -7,4 +7,6 @@ abstract class Jogador extends Propriedades{
     }
     abstract double usarSt();
     abstract double mostrarSt();
+    abstract void aumentarDano(double item);
+    abstract void aumentarHp(double item);
 }

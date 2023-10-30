@@ -26,6 +26,14 @@ public class Arqueiro extends Jogador{
     }
 
     @Override
+    void aumentarDano(double item) {
+    }
+
+    @Override
+    void aumentarHp(double item) {
+    }
+
+    @Override
     double receberDano(double dano) {
         this.hp -= dano;
         return this.hp;

@@ -39,4 +39,12 @@ public class Mago extends Jogador{
     double mostrarSt() {
         return this.st;
     }
+
+    @Override
+    void aumentarDano(double item) {
+    }
+
+    @Override
+    void aumentarHp(double item) {
+    }
 }
