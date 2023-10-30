@@ -2,7 +2,7 @@ package ClassesJogador;
 //Adicionando itens
 public class Item {
     private int nivel;
-    private int item;
+    //private int item;
 
     public Item(int nivel) {
         this.nivel = nivel;
@@ -13,7 +13,7 @@ public class Item {
         int base = 10;
         return base*this.nivel;
     }
-    protected int cajado(){
+    public int cajado(){
         System.out.println("Você pegou o cajado");
         int base = 10;
         return base*this.nivel;

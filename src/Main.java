@@ -1,7 +1,6 @@
-
-import ClassesJogador.Batalha;
-
 import java.util.Scanner;
+
+import Entities.Batalha;
 
 public class Main {
     public static void main(String[] args) {

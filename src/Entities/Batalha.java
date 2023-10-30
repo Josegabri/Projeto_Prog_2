@@ -1,13 +1,22 @@
-package ClassesJogador;
+package Entities;
 
 import java.util.Random;
+
+import ClassesInimigos.Caveira;
+import ClassesInimigos.Fungo;
+import ClassesInimigos.Inimigo;
+import ClassesJogador.Arqueiro;
+import ClassesJogador.Guerreiro;
+import ClassesJogador.Item;
+import ClassesJogador.Jogador;
+import ClassesJogador.Mago;
 
 public class Batalha{
     private String nome;
     private int opcao;
     private String ganhador;
 
-    private Item item;
+    //private Item item;
     private Random aleatorio;
 
     public Batalha(String nome, int opcao) {
@@ -50,6 +59,8 @@ public class Batalha{
                 return null;
         }
     }
+    // Adicionar um "inimigo_2" igual o inimigo a cima, em que só irá ter 
+    // inimigos de nível 2 nas escolhas, e assim por diante. 
 
     public void batalha(){
         this.aleatorio = new Random();
@@ -62,6 +73,7 @@ public class Batalha{
         int rodada = 0;
 
         System.out.println("\n"+inimigo2.nome + " APARECEU!!\n");
+
         while ( (ganhador != classe_convert.nome) && (ganhador != inimigo2.nome)){
             
             if (rodada == 0){
@@ -76,7 +88,7 @@ public class Batalha{
                 rodada = 1;    
             }
             
-            else if ( rodada ==1 ){
+            else if ( rodada == 1 ){
                 System.out.println(classe_convert.nome+ " recebeu "
                 +inimigo2.mostrarDano()+" de dano do "+ inimigo2.nome);
                 classe_convert.receberDano(inimigo2.causarDano());

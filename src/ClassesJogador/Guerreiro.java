@@ -11,7 +11,7 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    double causarDano() {
+    public double causarDano() {
         return this.dano;
     }
 
@@ -22,18 +22,18 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    double receberDano(double dano) {
+    public double receberDano(double dano) {
         this.hp -= dano;
         return this.hp;
     }
 
     @Override
-    double mostrarHp() {
+    public double mostrarHp() {
         return this.hp;
     }
 
     @Override
-    double mostrarDano() {
+    public double mostrarDano() {
         return this.dano;
     }
 
@@ -43,7 +43,7 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    void aumentarDano(double item) {
+    public void aumentarDano(double item) {
         this.dano += item;
     }
 

@@ -1,4 +1,5 @@
-package ClassesJogador;
+package ClassesInimigos;
+// Inimigo Nível 1 
 
 public class Fungo extends Inimigo{
     protected double dano = 3;
@@ -9,23 +10,23 @@ public class Fungo extends Inimigo{
     }
 
     @Override
-    double causarDano() {
+    public double causarDano() {
         return this.dano;
     }
 
     @Override
-    double receberDano(double dano) {
+    public double receberDano(double dano) {
         this.hp -= dano;
         return this.hp;
     }
 
     @Override
-    double mostrarHp() {
+    public double mostrarHp() {
         return this.hp;
     }
 
     @Override
-    double mostrarDano() {
+    public double mostrarDano() {
         return this.dano;
     }
 }
