@@ -45,7 +45,7 @@ public class Batalha{
             case 0:
                 return new Caveira("Caveira");
             case 1:
-                return new Cachorro("Cachorro");
+                return new Fungo("Fungo");
             default:
                 return null;
         }
@@ -60,6 +60,8 @@ public class Batalha{
        
         // código do desenvolvimento da batalha 
         int rodada = 0;
+
+        System.out.println("\n"+inimigo2.nome + " APARECEU!!\n");
         while ( (ganhador != classe_convert.nome) && (ganhador != inimigo2.nome)){
             
             if (rodada == 0){
@@ -96,45 +98,14 @@ public class Batalha{
 
                 System.out.println("\nDano antes do item: " + classe_convert.mostrarDano());
                 Item item = new Item(1);
-                classe_convert.aumentarDano(item.espada());
+                classe_convert.aumentarDano(item.cajado());
                 System.out.println("Dano após o equipamento do item: " + classe_convert.mostrarDano());
             }
         }        
     }
-
     
     public String getGanhador() {
         return ganhador;
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    private Arqueiro arqueiro = new Arqueiro(this.nome);
-//    private Guerreiro guerreiro = new Guerreiro(this.nome);
-//    private Mago mago = new Mago(this.nome);

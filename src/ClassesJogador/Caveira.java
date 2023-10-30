@@ -1,7 +1,7 @@
 package ClassesJogador;
 
 public class Caveira extends Inimigo{
-    protected double dano = 10;
+    protected double dano = 8;
     protected double hp = 20;
     public Caveira(String nome) {
         super("caveira");

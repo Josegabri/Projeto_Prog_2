@@ -1,7 +1,7 @@
 package ClassesJogador;
 
 public class Mago extends Jogador{
-    protected double dano = 10;
+    protected double dano = 7;
     protected double hp = 20;
     protected double st = 10;
     public Mago(String nome) {
@@ -42,6 +42,7 @@ public class Mago extends Jogador{
 
     @Override
     void aumentarDano(double item) {
+        dano = item;
     }
 
     @Override

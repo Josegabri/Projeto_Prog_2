@@ -1,10 +1,10 @@
 package ClassesJogador;
 
-public class Cachorro extends Inimigo{
-    protected double dano = 2;
+public class Fungo extends Inimigo{
+    protected double dano = 3;
     protected double hp = 15;
 
-    public Cachorro(String nome) {
+    public Fungo(String nome) {
         super(nome);
     }
 
