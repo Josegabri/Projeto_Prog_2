@@ -1,13 +1,17 @@
 package ClassesJogador;
 
+import java.util.Random;
+
 public class Arqueiro extends Jogador{
 
     protected double dano = 12;
     protected double hp = 20;
     protected double st = 10;
     protected Integer nivel = 1;
-    protected double exp= 0;
+    protected double exp;
     protected double min_exp = nivel* 10;
+    protected double item = 0;
+    protected String nomeItem = "";
 
     public Arqueiro(String nome) {
         super(nome);
@@ -81,5 +85,28 @@ public class Arqueiro extends Jogador{
     @Override
     public double mostrarExp() {
         return this.exp;
+    }
+    @Override
+    public void item(){
+        Random aleatorio = new Random();
+        int valor = aleatorio.nextInt(100);
+        if (valor <= 49){
+            this.item = 5;
+            this.nomeItem = "Arco Comum";
+        } else if (valor <= 84){
+            this.item = 10;
+            this.nomeItem = "Arco Raro";
+        } else if (valor <= 99){
+            this.item = 15;
+            this.nomeItem = "Arco Lendária";
+        }
+        this.dano += this.item;
+
+    }
+
+    @Override
+    public String nomeItem() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
     }
 }

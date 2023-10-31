@@ -84,5 +84,17 @@ public class Guerreiro extends Jogador{
     public double mostrarExp() {
         return this.exp;
     }
+
+    @Override
+    public void item() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'item'");
+    }
+
+    @Override
+    public String nomeItem() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
+    }
 }
 

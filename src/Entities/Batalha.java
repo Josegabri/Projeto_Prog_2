@@ -71,7 +71,7 @@ public class Batalha{
        
         // código do desenvolvimento da batalha 
         int rodada = 0;
-
+        ganhador =null;
         System.out.println("\n"+inimigo2.nome + " APARECEU!!\n");
 
         while ( (ganhador != classe_convert.nome) && (ganhador != inimigo2.nome)){
