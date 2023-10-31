@@ -3,9 +3,11 @@ package ClassesInimigos;
 
 public class Caveira extends Inimigo{
     protected double dano = 8;
-    protected double hp = 20;
+    protected double hp = 17;
+    protected double dropExp = 7;
+
     public Caveira(String nome) {
-        super("caveira");
+        super(nome);
     }
 
     @Override
@@ -27,5 +29,9 @@ public class Caveira extends Inimigo{
     @Override
     public double mostrarDano() {
         return this.dano;
+    }
+    @Override 
+    public double mostrarDropexp(){
+        return dropExp;
     }
 }

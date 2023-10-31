@@ -4,6 +4,7 @@ package ClassesInimigos;
 public class Fungo extends Inimigo{
     protected double dano = 3;
     protected double hp = 15;
+    protected double dropExp = 5;
 
     public Fungo(String nome) {
         super(nome);
@@ -28,5 +29,9 @@ public class Fungo extends Inimigo{
     @Override
     public double mostrarDano() {
         return this.dano;
+    }
+    @Override
+    public double mostrarDropexp(){
+        return dropExp;
     }
 }

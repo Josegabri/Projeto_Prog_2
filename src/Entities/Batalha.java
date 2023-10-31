@@ -100,18 +100,21 @@ public class Batalha{
             }
 
             // Define ganhador. 
-            if ( classe_convert.mostrarHp() <= 0 ){
+            if ( classe_convert.mostrarHp() <= 0 ){ // inimigo vencedor 
                 ganhador = inimigo2.nome;
                 System.out.println("\nO vencedor da batalha foi "+inimigo2.nome);
             }
-            else if ( inimigo2.mostrarHp() <= 0 ){
+            else if ( inimigo2.mostrarHp() <= 0 ){ // jogador vencedor 
                 ganhador = classe_convert.nome;
                 System.out.println("\nO vencedor da batalha foi "+classe_convert.nome);
+                
+                classe_convert.aumentarExp(inimigo2.mostrarDropexp());
+                System.out.println(classe_convert.aumentarNivel(classe_convert.mostrarExp()));  
 
                 System.out.println("\nDano antes do item: " + classe_convert.mostrarDano());
                 Item item = new Item(1);
                 classe_convert.aumentarDano(item.cajado());
-                System.out.println("Dano após o equipamento do item: " + classe_convert.mostrarDano());
+                System.out.println("Dano após a equipagem do item: " + classe_convert.mostrarDano());
             }
         }        
     }
