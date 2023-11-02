@@ -15,7 +15,6 @@ public class Item {
     public void classeItem(int opcao) {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
-        System.out.println("Valor inserido: " + valor);
         if(opcao == 1){
             if (valor <= 49){
                 itemMago();

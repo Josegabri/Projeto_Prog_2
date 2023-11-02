@@ -112,10 +112,15 @@ public class Batalha{
                 System.out.println(jogador.aumentarNivel(jogador.mostrarExp()));  
 
                 System.out.println("\nDano antes do item: " + jogador.mostrarDano());
-                    jogador.equiparItem().classeItem(this.opcao);
-                    jogador.aumentarDano(jogador.danoItem());
-                System.out.println("Você ganhou o item " + jogador.nomeItem() + " de dano " + jogador.danoItem());
+                jogador.equiparItem().classeItem(this.opcao);
+                jogador.aumentarDano(jogador.getDanoItem());
+                System.out.println("Você ganhou o item " + jogador.getNomeItem() + " de dano " + jogador.getDanoItem());
+
+
+
                 System.out.println("Dano após a equipagem do item: " + jogador.mostrarDano());
+                jogador.mostrarInventario();
+
             }
         }        
     }

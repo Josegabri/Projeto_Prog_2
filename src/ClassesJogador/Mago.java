@@ -1,5 +1,8 @@
 package ClassesJogador;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Mago extends Jogador{
     protected double dano = 15;
     protected double hp = 15;
@@ -12,6 +15,7 @@ public class Mago extends Jogador{
     protected double hpItem;
     protected double stItem;
     protected Item item;
+    protected List<String> inventario =  new ArrayList<>();
 
 
     public Mago(String nome) {
@@ -116,18 +120,40 @@ public class Mago extends Jogador{
             this.stItem = dano;
             this.nomeItem = nome;
         }
+        this.inventario.add(nome);
+
+//        for (int i = 0; i < this.inventario.size(); i++){
+//            System.out.println("Item do seu inventário: " + this.inventario.get(0));
+//        }
     }
 
     @Override
-    public String nomeItem() {
+    public double getDanoItem() {
+        return this.danoItem;
+    }
+
+    @Override
+    public double getHpItem() {
+        return this.hpItem;
+    }
+
+    @Override
+    public double getStItem() {
+        return this.stItem;
+    }
+
+    @Override
+    public String getNomeItem() {
         return this.nomeItem;
     }
 
     @Override
-    public double danoItem(){
-        return this.danoItem;
+    public void mostrarInventario() {
+        System.out.print("Você tem os seguintes itens no iventário: ");
+        for (int i = 0; i < this.inventario.size(); i++){
+            System.out.print(" " + this.inventario.get(i) + " ");
+        }
     }
 
-    
 
 }

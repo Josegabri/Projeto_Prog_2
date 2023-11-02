@@ -1,5 +1,8 @@
 package ClassesJogador;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Guerreiro extends Jogador{
 
     protected double dano = 10;
@@ -13,6 +16,7 @@ public class Guerreiro extends Jogador{
     protected double stItem;
     protected String nomeItem;
     protected Item item;
+    protected List<String> inventario =  new ArrayList<>();
 
 
     public Guerreiro(String nome) {
@@ -115,28 +119,36 @@ public class Guerreiro extends Jogador{
             this.stItem = dano;
             this.nomeItem = nome;
         }
+        this.inventario.add(this.nomeItem);
     }
 
     @Override
-    public String nomeItem() {
+    public double getDanoItem() {
+        return this.danoItem;
+    }
+
+    @Override
+    public double getHpItem() {
+        return this.hpItem;
+    }
+
+    @Override
+    public double getStItem() {
+        return this.stItem;
+    }
+
+    @Override
+    public String getNomeItem() {
         return this.nomeItem;
     }
 
     @Override
-    public double danoItem(){
-        return this.danoItem;
+    public void mostrarInventario() {
+        System.out.print("Você tem os seguintes itens no iventário: ");
+        for (int i = 0; i < this.inventario.size(); i++){
+            System.out.print(" " + this.inventario.get(i) + " ");
+        }
     }
 
-//    @Override
-//    public void item() {
-//        // TODO Auto-generated method stub
-//        throw new UnsupportedOperationException("Unimplemented method 'item'");
-//    }
-//
-//    @Override
-//    public String nomeItem() {
-//        // TODO Auto-generated method stub
-//        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
-//    }
 }
 
