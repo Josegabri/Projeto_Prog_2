@@ -66,7 +66,7 @@ public class Batalha{
         this.aleatorio = new Random();
         Object classe = escolha(this.opcao);
         Object inimigo = inimigo(this.aleatorio.nextInt(2));
-        Jogador classe_convert = (Jogador) classe;
+        Jogador jogador = (Jogador) classe;
         Inimigo inimigo2 = (Inimigo) inimigo;
        
         // código do desenvolvimento da batalha 
@@ -74,25 +74,25 @@ public class Batalha{
         ganhador =null;
         System.out.println("\n"+inimigo2.nome + " APARECEU!!\n");
 
-        while ( (ganhador != classe_convert.nome) && (ganhador != inimigo2.nome)){
+        while ( (ganhador != jogador.nome) && (ganhador != inimigo2.nome)){
             
             if (rodada == 0){
                 System.out.println( inimigo2.nome+ " recebeu "
-                +classe_convert.mostrarDano()+ " de dano do "+ 
-                classe_convert.nome);
-                inimigo2.receberDano(classe_convert.causarDano());
+                +jogador.mostrarDano()+ " de dano do "+ 
+                jogador.nome);
+                inimigo2.receberDano(jogador.causarDano());
                 System.out.println(inimigo2.nome + " está com "+inimigo2.mostrarHp()+ 
                 " de vida.");
-                System.out.println(classe_convert.nome + " está com " + classe_convert.mostrarHp()+
+                System.out.println(jogador.nome + " está com " + jogador.mostrarHp()+
                 " de vida.");
                 rodada = 1;    
             }
             
             else if ( rodada == 1 ){
-                System.out.println(classe_convert.nome+ " recebeu "
+                System.out.println(jogador.nome+ " recebeu "
                 +inimigo2.mostrarDano()+" de dano do "+ inimigo2.nome);
-                classe_convert.receberDano(inimigo2.causarDano());
-                System.out.println(classe_convert.nome + " está com " + classe_convert.mostrarHp()+
+                jogador.receberDano(inimigo2.causarDano());
+                System.out.println(jogador.nome + " está com " + jogador.mostrarHp()+
                 " de vida.");
                 System.out.println(inimigo2.nome + " está com "+inimigo2.mostrarHp()+ 
                 " de vida.");
@@ -100,21 +100,22 @@ public class Batalha{
             }
 
             // Define ganhador. 
-            if ( classe_convert.mostrarHp() <= 0 ){ // inimigo vencedor 
+            if ( jogador.mostrarHp() <= 0 ){ // inimigo vencedor 
                 ganhador = inimigo2.nome;
                 System.out.println("\nO vencedor da batalha foi "+inimigo2.nome);
             }
             else if ( inimigo2.mostrarHp() <= 0 ){ // jogador vencedor 
-                ganhador = classe_convert.nome;
-                System.out.println("\nO vencedor da batalha foi "+classe_convert.nome);
+                ganhador = jogador.nome;
+                System.out.println("\nO vencedor da batalha foi "+jogador.nome);
                 
-                classe_convert.aumentarExp(inimigo2.mostrarDropexp());
-                System.out.println(classe_convert.aumentarNivel(classe_convert.mostrarExp()));  
+                jogador.aumentarExp(inimigo2.mostrarDropexp());
+                System.out.println(jogador.aumentarNivel(jogador.mostrarExp()));  
 
-                System.out.println("\nDano antes do item: " + classe_convert.mostrarDano());
-                Item item = new Item(1);
-                classe_convert.aumentarDano(item.cajado());
-                System.out.println("Dano após a equipagem do item: " + classe_convert.mostrarDano());
+                System.out.println("\nDano antes do item: " + jogador.mostrarDano());
+                    jogador.equiparItem().classeItem(this.opcao);
+                    jogador.aumentarDano(jogador.danoItem());
+                System.out.println("Você ganhou o item " + jogador.nomeItem() + " de dano " + jogador.danoItem());
+                System.out.println("Dano após a equipagem do item: " + jogador.mostrarDano());
             }
         }        
     }

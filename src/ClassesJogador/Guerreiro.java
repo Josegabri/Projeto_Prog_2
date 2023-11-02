@@ -8,9 +8,17 @@ public class Guerreiro extends Jogador{
     protected Integer nivel = 1;
     protected double exp= 0;
     protected double min_exp = nivel* 8;
+    protected double danoItem;
+    protected double hpItem;
+    protected double stItem;
+    protected String nomeItem;
+    protected Item item;
+
 
     public Guerreiro(String nome) {
         super(nome);
+        this.item = new Item(this);
+
     }
 
     @Override
@@ -55,6 +63,11 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
+    void aumentarSt(double item) {
+
+    }
+
+    @Override
     public String aumentarNivel(double experi) {
         if (experi > min_exp){ 
             nivel+=1;
@@ -86,15 +99,44 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    public void item() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'item'");
+    public Item equiparItem() {
+        return this.item;
+    }
+
+    @Override
+    public void item(double dano, String nome, String tipo) {
+        if (tipo == "dano") {
+            this.danoItem = dano;
+            this.nomeItem = nome;
+        } else if (tipo == "hp"){
+            this.hpItem = dano;
+            this.nomeItem = nome;
+        } else {
+            this.stItem = dano;
+            this.nomeItem = nome;
+        }
     }
 
     @Override
     public String nomeItem() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
+        return this.nomeItem;
     }
+
+    @Override
+    public double danoItem(){
+        return this.danoItem;
+    }
+
+//    @Override
+//    public void item() {
+//        // TODO Auto-generated method stub
+//        throw new UnsupportedOperationException("Unimplemented method 'item'");
+//    }
+//
+//    @Override
+//    public String nomeItem() {
+//        // TODO Auto-generated method stub
+//        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
+//    }
 }
 

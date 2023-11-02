@@ -10,12 +10,18 @@ public class Arqueiro extends Jogador{
     protected Integer nivel = 1;
     protected double exp;
     protected double min_exp = nivel* 10;
-    protected double item = 0;
-    protected String nomeItem = "";
+//    protected double item = 0;
+    protected String nomeItem;
+    protected double danoItem;
+    protected double hpItem;
+    protected double stItem;
+    protected Item item;
 
     public Arqueiro(String nome) {
         super(nome);
+        this.item = new Item(this);
     }
+
 
     @Override
     public  double causarDano() {
@@ -34,10 +40,16 @@ public class Arqueiro extends Jogador{
 
     @Override
     public void aumentarDano(double item) {
+        this.dano += item;
     }
 
     @Override
     void aumentarHp(double item) {
+    }
+
+    @Override
+    void aumentarSt(double item) {
+
     }
 
     @Override
@@ -86,27 +98,35 @@ public class Arqueiro extends Jogador{
     public double mostrarExp() {
         return this.exp;
     }
-    @Override
-    public void item(){
-        Random aleatorio = new Random();
-        int valor = aleatorio.nextInt(100);
-        if (valor <= 49){
-            this.item = 5;
-            this.nomeItem = "Arco Comum";
-        } else if (valor <= 84){
-            this.item = 10;
-            this.nomeItem = "Arco Raro";
-        } else if (valor <= 99){
-            this.item = 15;
-            this.nomeItem = "Arco Lendária";
-        }
-        this.dano += this.item;
 
+    @Override
+    public Item equiparItem() {
+        return this.item;
+    }
+
+    @Override
+    public void item(double dano, String nome, String tipo) {
+        if (tipo == "dano") {
+            this.danoItem = dano;
+            this.nomeItem = nome;
+        } else if (tipo == "hp"){
+            this.hpItem = dano;
+            this.nomeItem = nome;
+        } else {
+            this.stItem = dano;
+            this.nomeItem = nome;
+        }
     }
 
     @Override
     public String nomeItem() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
+        return this.nomeItem;
     }
+
+    @Override
+    public double danoItem(){
+        return this.danoItem;
+    }
+
+
 }

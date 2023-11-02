@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import ClassesJogador.Jogador;
+import ClassesJogador.Mago;
 import Entities.Batalha;
 
 public class Main {
@@ -16,7 +18,6 @@ public class Main {
         scanner.nextLine();
         Batalha batalha = new Batalha(nome, classe);
         batalha.batalha();
-        
         System.out.println("ROUND 2");
 
         batalha.batalha();

@@ -7,13 +7,20 @@ public class Mago extends Jogador{
     protected Integer nivel = 1;
     protected double exp= 0;
     protected double min_exp = nivel* 15;
-    
+    protected String nomeItem;
+    protected double danoItem;
+    protected double hpItem;
+    protected double stItem;
+    protected Item item;
+
+
     public Mago(String nome) {
         super(nome);
+        this.item = new Item(this);
     }
 
     @Override
-     public double causarDano() {
+    public double causarDano() {
         return this.dano;
     }
 
@@ -49,11 +56,16 @@ public class Mago extends Jogador{
     @Override
     public
     void aumentarDano(double item) {
-        dano = item;
+        this.dano += item;
     }
 
     @Override
     void aumentarHp(double item) {
+    }
+
+    @Override
+    void aumentarSt(double item) {
+
     }
 
     @Override 
@@ -88,16 +100,34 @@ public class Mago extends Jogador{
     }
 
     @Override
-    public void item() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'item'");
+    public Item equiparItem() {
+        return this.item;
+    }
+
+    @Override
+    public void item(double dano, String nome, String tipo) {
+        if (tipo == "dano") {
+            this.danoItem = dano;
+            this.nomeItem = nome;
+        } else if (tipo == "hp"){
+            this.hpItem = dano;
+            this.nomeItem = nome;
+        } else {
+            this.stItem = dano;
+            this.nomeItem = nome;
+        }
     }
 
     @Override
     public String nomeItem() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nomeItem'");
+        return this.nomeItem;
     }
+
+    @Override
+    public double danoItem(){
+        return this.danoItem;
+    }
+
     
 
 }

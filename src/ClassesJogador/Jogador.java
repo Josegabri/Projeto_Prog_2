@@ -9,11 +9,14 @@ public abstract class Jogador extends Propriedades{
     abstract double mostrarSt();
     public abstract void aumentarDano(double item);
     abstract void aumentarHp(double item);
+    abstract void aumentarSt(double item);
     double mostrarExp;
     public abstract String aumentarNivel(double experi);
     abstract Integer mostrarNivel();
     public abstract void aumentarExp (double exper);
     public abstract double mostrarExp();
-    public abstract void item();
-    public abstract String nomeItem();  
+    public abstract Item equiparItem();
+    public abstract void item(double dano, String nome, String tipo);
+    public abstract String nomeItem();
+    public abstract double danoItem();
 }
