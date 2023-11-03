@@ -9,5 +9,7 @@ public abstract class Inimigo extends Propriedades{
     }
 
     public abstract double mostrarDropexp();
+    public abstract void nivel(int fase);
+    public abstract int getNivel();
 
 }

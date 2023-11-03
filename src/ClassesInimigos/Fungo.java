@@ -5,9 +5,12 @@ public class Fungo extends Inimigo{
     protected double dano = 3;
     protected double hp = 15;
     protected double dropExp = 5;
+    protected int nivel = 1;
 
-    public Fungo(String nome) {
+    public Fungo(String nome, int nivel) {
         super(nome);
+        this.nivel = nivel;
+        this.nivel(nivel);
     }
 
     @Override
@@ -33,5 +36,17 @@ public class Fungo extends Inimigo{
     @Override
     public double mostrarDropexp(){
         return dropExp;
+    }
+
+    @Override
+    public void nivel(int fase) {
+        this.dano += this.dano*(fase*10/100);
+        this.hp += this.hp*(fase*10/100);
+        this.nivel = fase;
+    }
+
+    @Override
+    public int getNivel() {
+        return this.nivel;
     }
 }

@@ -15,6 +15,7 @@ public class Batalha{
     private String nome;
     private int opcao;
     private String ganhador;
+    private int fase = 10;
 
     //private Item item;
     private Random aleatorio;
@@ -52,9 +53,9 @@ public class Batalha{
     public Object inimigo(int aleatorio){
         switch (aleatorio){
             case 0:
-                return new Caveira("Caveira");
+                return new Caveira("Caveira", this.fase);
             case 1:
-                return new Fungo("Fungo");
+                return new Fungo("Fungo", this.fase);
             default:
                 return null;
         }
