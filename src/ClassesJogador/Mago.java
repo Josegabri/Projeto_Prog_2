@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mago extends Jogador{
-    protected double dano = 15;
-    protected double hp = 15;
-    protected double st = 10;
-    protected Integer nivel = 1;
-    protected double exp= 0;
-    protected double min_exp = nivel* 15;
+    protected static double dano = 15;
+    protected static double hp = 15;
+    protected static double st = 10;
+    protected static Integer nivel = 1;
+    protected static double exp= 0;
+    protected static double min_exp = nivel* 15;
     protected String nomeItem;
     protected double danoItem;
     protected double hpItem;
     protected double stItem;
     protected Item item;
-    protected List<String> inventario =  new ArrayList<>();
+    protected static List<String> inventario =  new ArrayList<>();
 
 
     public Mago(String nome) {

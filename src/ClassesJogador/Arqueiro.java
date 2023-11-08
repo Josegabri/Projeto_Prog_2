@@ -6,19 +6,19 @@ import java.util.Random;
 
 public class Arqueiro extends Jogador{
 
-    protected double dano = 12;
-    protected double hp = 20;
-    protected double st = 10;
-    protected Integer nivel = 1;
-    protected double exp;
-    protected double min_exp = nivel* 10;
+    protected static double dano = 12;
+    protected static double hp = 20;
+    protected static double st = 10;
+    protected static Integer nivel = 1;
+    protected static double exp;
+    protected static double min_exp = nivel* 10;
 //    protected double item = 0;
     protected String nomeItem;
     protected double danoItem;
     protected double hpItem;
     protected double stItem;
     protected Item item;
-    protected List<String> inventario =  new ArrayList<>();
+    protected static List<String> inventario =  new ArrayList<>();
 
     public Arqueiro(String nome) {
         super(nome);

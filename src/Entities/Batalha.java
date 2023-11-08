@@ -15,7 +15,7 @@ public class Batalha{
     private String nome;
     private int opcao;
     private String ganhador;
-    private int fase = 10;
+    private int fase = 1;
 
     //private Item item;
     private Random aleatorio;
@@ -67,7 +67,7 @@ public class Batalha{
         this.aleatorio = new Random();
         Object classe = escolha(this.opcao);
         Object inimigo = inimigo(this.aleatorio.nextInt(2));
-        Jogador jogador = (Jogador) classe;
+        Jogador Jogador = (Jogador) classe;
         Inimigo inimigo2 = (Inimigo) inimigo;
        
         // código do desenvolvimento da batalha 
@@ -75,25 +75,25 @@ public class Batalha{
         ganhador =null;
         System.out.println("\n"+inimigo2.nome + " APARECEU!!\n");
 
-        while ( (ganhador != jogador.nome) && (ganhador != inimigo2.nome)){
+        while ( (ganhador != Jogador.nome) && (ganhador != inimigo2.nome)){
             
             if (rodada == 0){
                 System.out.println( inimigo2.nome+ " recebeu "
-                +jogador.mostrarDano()+ " de dano do "+ 
-                jogador.nome);
-                inimigo2.receberDano(jogador.causarDano());
+                +Jogador.mostrarDano()+ " de dano do "+ 
+                Jogador.nome);
+                inimigo2.receberDano(Jogador.causarDano());
                 System.out.println(inimigo2.nome + " está com "+inimigo2.mostrarHp()+ 
                 " de vida.");
-                System.out.println(jogador.nome + " está com " + jogador.mostrarHp()+
+                System.out.println(Jogador.nome + " está com " + Jogador.mostrarHp()+
                 " de vida.");
                 rodada = 1;    
             }
             
             else if ( rodada == 1 ){
-                System.out.println(jogador.nome+ " recebeu "
+                System.out.println(Jogador.nome+ " recebeu "
                 +inimigo2.mostrarDano()+" de dano do "+ inimigo2.nome);
-                jogador.receberDano(inimigo2.causarDano());
-                System.out.println(jogador.nome + " está com " + jogador.mostrarHp()+
+                Jogador.receberDano(inimigo2.causarDano());
+                System.out.println(Jogador.nome + " está com " + Jogador.mostrarHp()+
                 " de vida.");
                 System.out.println(inimigo2.nome + " está com "+inimigo2.mostrarHp()+ 
                 " de vida.");
@@ -101,26 +101,26 @@ public class Batalha{
             }
 
             // Define ganhador. 
-            if ( jogador.mostrarHp() <= 0 ){ // inimigo vencedor 
+            if ( Jogador.mostrarHp() <= 0 ){ // inimigo vencedor 
                 ganhador = inimigo2.nome;
                 System.out.println("\nO vencedor da batalha foi "+inimigo2.nome);
             }
-            else if ( inimigo2.mostrarHp() <= 0 ){ // jogador vencedor 
-                ganhador = jogador.nome;
-                System.out.println("\nO vencedor da batalha foi "+jogador.nome);
+            else if ( inimigo2.mostrarHp() <= 0 ){ // Jogador vencedor 
+                ganhador = Jogador.nome;
+                System.out.println("\nO vencedor da batalha foi "+Jogador.nome);
                 
-                jogador.aumentarExp(inimigo2.mostrarDropexp());
-                System.out.println(jogador.aumentarNivel(jogador.mostrarExp()));  
+                Jogador.aumentarExp(inimigo2.mostrarDropexp());
+                System.out.println(Jogador.aumentarNivel(Jogador.mostrarExp()));  
 
-                System.out.println("\nDano antes do item: " + jogador.mostrarDano());
-                jogador.equiparItem().classeItem(this.opcao);
-                jogador.aumentarDano(jogador.getDanoItem());
-                System.out.println("Você ganhou o item " + jogador.getNomeItem() + " de dano " + jogador.getDanoItem());
+                System.out.println("\nDano antes do item: " + Jogador.mostrarDano());
+                Jogador.equiparItem().classeItem(this.opcao);
+                Jogador.aumentarDano(Jogador.getDanoItem());
+                System.out.println("Você ganhou o item " + Jogador.getNomeItem() + " de dano " + Jogador.getDanoItem());
 
 
 
-                System.out.println("Dano após a equipagem do item: " + jogador.mostrarDano());
-                jogador.mostrarInventario();
+                System.out.println("Dano após a equipagem do item: " + Jogador.mostrarDano());
+                Jogador.mostrarInventario();
 
             }
         }        

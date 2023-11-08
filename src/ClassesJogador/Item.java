@@ -3,7 +3,7 @@ package ClassesJogador;
 import java.util.Random;
 
 //Adicionando itens
-public class Item {
+public class Item{
 
 
     private Jogador jogador;
@@ -40,17 +40,7 @@ public class Item {
                 itemSt();
             }
         }
-//        switch (opcao){
-//            case 1:
-//                itemMago();
-//                break;
-//            case 2:
-//                itemGuerreiro();
-//                break;
-//            case 3:
-//                itemArqueiro();
-//                break;
-//       }
+
     }
 
 

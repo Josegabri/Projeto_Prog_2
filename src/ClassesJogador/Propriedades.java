@@ -11,5 +11,4 @@ public abstract class Propriedades {
     public abstract double receberDano(double dano);
     public abstract double mostrarHp();
     public abstract double mostrarDano();
-
 }

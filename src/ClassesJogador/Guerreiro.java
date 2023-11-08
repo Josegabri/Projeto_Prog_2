@@ -5,18 +5,18 @@ import java.util.List;
 
 public class Guerreiro extends Jogador{
 
-    protected double dano = 10;
-    protected double hp = 25;
-    protected double st = 10;
-    protected Integer nivel = 1;
-    protected double exp= 0;
-    protected double min_exp = nivel* 8;
+    protected static double dano = 10;
+    protected static double hp = 25;
+    protected static double st = 10;
+    protected static Integer nivel = 1;
+    protected static double exp= 0;
+    protected static double min_exp = nivel* 8;
     protected double danoItem;
     protected double hpItem;
     protected double stItem;
     protected String nomeItem;
     protected Item item;
-    protected List<String> inventario =  new ArrayList<>();
+    protected static List<String> inventario =  new ArrayList<>();
 
 
     public Guerreiro(String nome) {
