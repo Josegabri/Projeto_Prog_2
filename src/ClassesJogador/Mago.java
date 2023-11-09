@@ -74,17 +74,22 @@ public class Mago extends Jogador{
 
     @Override 
     public String aumentarNivel(double experi){ //mostrarExp() como parâmentro
-         if (experi > min_exp){ 
-            nivel+=1;
-            return "Ganhou " + experi+ " de experiência "
-            +"\nVocê aumentou de nível!!" + "\n" + 
-            "Está no nível " + nivel+ ".";
-         }
-         else {
-            return "Ganhou " + experi+ " de experiência "
-            +"\nVocê precisa de "+ (min_exp - experi) + 
-            " para avançar de nível.";
-         }
+        exp += experi;
+        System.out.println("Minimo necessário para passar de nivel: " + min_exp);
+        System.out.println("Você ganhou " + experi + " de Experiência!!!!!!!!!!!");
+        if (exp > min_exp){
+            System.out.println("!!!!!!!! Você passou de nivel !!!!!!!");
+            exp -= min_exp;
+            nivel +=1;
+            min_exp = nivel*8;
+            System.out.println("Você está no nivel " + nivel);
+            System.out.println("Você possui " + exp +" no nivel " + nivel);
+            System.out.println("Você precisa de " + min_exp + " Para ir ao próximo nivel!!!!!!!!!!!");
+
+        } else {
+            System.out.println("Você precisa de " + (min_exp - exp) + " para passar de nivel");
+        }
+        return "";
     }
 
     @Override 
@@ -95,12 +100,11 @@ public class Mago extends Jogador{
     @Override
     public 
     void aumentarExp(double exper){
-        exp += exper;
     }
 
     @Override
     public double mostrarExp(){
-        return this.exp;
+        return exp;
     }
 
     @Override

@@ -64,19 +64,18 @@ public class Batalha{
     // inimigos de nível 2 nas escolhas, e assim por diante. 
 
     public void batalha(){
-        this.aleatorio = new Random();
         Object classe = escolha(this.opcao);
         Object inimigo = inimigo(this.aleatorio.nextInt(2));
         Jogador Jogador = (Jogador) classe;
         Inimigo inimigo2 = (Inimigo) inimigo;
-       
+
         // código do desenvolvimento da batalha 
         int rodada = 0;
         ganhador =null;
         System.out.println("\n"+inimigo2.nome + " APARECEU!!\n");
 
         while ( (ganhador != Jogador.nome) && (ganhador != inimigo2.nome)){
-            
+
             if (rodada == 0){
                 System.out.println( inimigo2.nome+ " recebeu "
                 +Jogador.mostrarDano()+ " de dano do "+ 
@@ -86,7 +85,7 @@ public class Batalha{
                 " de vida.");
                 System.out.println(Jogador.nome + " está com " + Jogador.mostrarHp()+
                 " de vida.");
-                rodada = 1;    
+                rodada = 1;
             }
             
             else if ( rodada == 1 ){
@@ -109,8 +108,7 @@ public class Batalha{
                 ganhador = Jogador.nome;
                 System.out.println("\nO vencedor da batalha foi "+Jogador.nome);
                 
-                Jogador.aumentarExp(inimigo2.mostrarDropexp());
-                System.out.println(Jogador.aumentarNivel(Jogador.mostrarExp()));  
+                System.out.println(Jogador.aumentarNivel(inimigo2.mostrarDropexp()));
 
                 System.out.println("\nDano antes do item: " + Jogador.mostrarDano());
                 Jogador.equiparItem().classeItem(this.opcao);

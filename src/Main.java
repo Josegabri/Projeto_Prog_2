@@ -21,6 +21,8 @@ public class Main {
         System.out.println("ROUND 2");
 
         batalha.batalha();
+        System.out.println("ROUND 3");
+        batalha.batalha();
 
         scanner.close();
     }
