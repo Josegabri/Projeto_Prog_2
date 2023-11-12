@@ -7,6 +7,7 @@ public abstract class Propriedades {
         this.nome = nome;
     }
 
+
     public abstract double causarDano();
     public abstract double receberDano(double dano);
     public abstract double mostrarHp();

@@ -2,38 +2,55 @@ package ClassesJogador;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Guerreiro extends Jogador{
+public class Guerreiro extends Jogador {
 
     protected static double dano = 10;
     protected static double hp = 25;
     protected static double st = 10;
     protected static Integer nivel = 1;
     protected static double exp = 0;
-    protected static double min_exp = nivel* 8;
+    protected static double min_exp = nivel * 8;
     protected double danoItem;
     protected double hpItem;
     protected double stItem;
     protected String nomeItem;
-    protected Item item;
-    protected static List<String> inventario =  new ArrayList<>();
+    protected static List<String> inventarioNome = new ArrayList<>();
+    protected static List<Double> inventarioDano = new ArrayList<>();
 
 
     public Guerreiro(String nome) {
         super(nome);
-        this.item = new Item(this);
+
+    }
+
+    @Override
+    public void equiparItem() {
+        this.mostrarInventario();
+        Scanner scanner = new Scanner(System.in);
+        int escolha = scanner.nextInt();
+        for (int i = 0; i < inventarioDano.size(); i++) {
+            if (escolha == i) {
+                inventarioDano.get(i);
+            } else {
+                System.out.println("Opção inválida.");
+                this.equiparItem();
+            }
+        }
 
     }
 
     @Override
     public double causarDano() {
-        return this.dano;
+        return dano + this.danoItem;
     }
 
-    @Override // ainda para ser alterado
+    @Override
+    public // ainda para ser alterado
     double usarSt() {
-        this.st -= 7 ;
-        return this.dano+4;
+        this.st -= 7;
+        return this.dano + 4;
     }
 
     @Override
@@ -53,7 +70,7 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    double mostrarSt() {
+    public double mostrarSt() {
         return this.st;
     }
 
@@ -63,11 +80,11 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    void aumentarHp(double item) {
+    public void aumentarHp(double item) {
     }
 
     @Override
-    void aumentarSt(double item) {
+    public void aumentarSt(double item) {
 
     }
 
@@ -76,13 +93,13 @@ public class Guerreiro extends Jogador{
         exp += experi;
         System.out.println("Minimo necessário para passar de nivel: " + min_exp);
         System.out.println("Você ganhou " + experi + " de Experiência!!!!!!!!!!!");
-        if (exp > min_exp){
+        if (exp > min_exp) {
             System.out.println("!!!!!!!! Você passou de nivel !!!!!!!");
             exp -= min_exp;
-            nivel +=1;
-            min_exp = nivel*8;
+            nivel += 1;
+            min_exp = nivel * 8;
             System.out.println("Você está no nivel " + nivel);
-            System.out.println("Você possui " + exp +" no nivel " + nivel);
+            System.out.println("Você possui " + exp + " no nivel " + nivel);
             System.out.println("Você precisa de " + min_exp + " Para ir ao próximo nivel!!!!!!!!!!!");
 
         } else {
@@ -92,12 +109,12 @@ public class Guerreiro extends Jogador{
     }
 
     @Override
-    Integer mostrarNivel() {
-        return this.nivel;    
+    public Integer mostrarNivel() {
+        return this.nivel;
     }
 
     @Override
-    
+
     public void aumentarExp(double exper) {
     }
 
@@ -106,24 +123,20 @@ public class Guerreiro extends Jogador{
         return this.exp;
     }
 
-    @Override
-    public Item equiparItem() {
-        return this.item;
-    }
 
     @Override
     public void item(double dano, String nome, String tipo) {
         if (tipo == "dano") {
             this.danoItem = dano;
             this.nomeItem = nome;
-        } else if (tipo == "hp"){
+        } else if (tipo == "hp") {
             this.hpItem = dano;
             this.nomeItem = nome;
         } else {
             this.stItem = dano;
             this.nomeItem = nome;
         }
-        this.inventario.add(this.nomeItem);
+        inventarioNome.add(this.nomeItem);
     }
 
     @Override
@@ -148,11 +161,11 @@ public class Guerreiro extends Jogador{
 
     @Override
     public void mostrarInventario() {
-        System.out.print("Você tem os seguintes itens no iventário: ");
-        for (int i = 0; i < this.inventario.size(); i++){
-            System.out.print(" " + this.inventario.get(i) + " ");
+        System.out.println("Você tem os seguintes itens no iventário: ");
+        for (String item : inventarioNome) {
+            System.out.println("1 ---> " + item);
+
         }
+
     }
-
 }
-

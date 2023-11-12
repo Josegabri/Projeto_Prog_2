@@ -2,6 +2,7 @@ package ClassesJogador;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Mago extends Jogador{
     protected static double dano = 15;
@@ -14,22 +15,37 @@ public class Mago extends Jogador{
     protected double danoItem;
     protected double hpItem;
     protected double stItem;
-    protected Item item;
-    protected static List<String> inventario =  new ArrayList<>();
+    protected static List<String> inventarioNome =  new ArrayList<>();
+    protected static List<Double> inventarioDano = new ArrayList<>();
 
 
     public Mago(String nome) {
         super(nome);
-        this.item = new Item(this);
+    }
+
+    @Override
+    public void equiparItem() {
+        this.mostrarInventario();
+        Scanner scanner = new Scanner(System.in);
+        int escolha = scanner.nextInt();
+        for (int i = 0; i < inventarioDano.size(); i++){
+            if (escolha == i){
+                inventarioDano.get(i);
+            } else {
+                System.out.println("Opção inválida.");
+                this.equiparItem();
+            }
+        }
+
     }
 
     @Override
     public double causarDano() {
-        return this.dano;
+        return dano + this.danoItem;
     }
 
     @Override
-    double usarSt() {
+    public double usarSt() {
         this.st -= 4;
         return this.dano + 4;
     }
@@ -49,26 +65,26 @@ public class Mago extends Jogador{
     @Override
     public
     double mostrarDano() {
-        return this.dano;
+        return dano;
     }
 
     @Override
-    double mostrarSt() {
+    public double mostrarSt() {
         return this.st;
     }
 
     @Override
     public
     void aumentarDano(double item) {
-        this.dano += item;
+        dano += item;
     }
 
     @Override
-    void aumentarHp(double item) {
+    public void aumentarHp(double item) {
     }
 
     @Override
-    void aumentarSt(double item) {
+    public void aumentarSt(double item) {
 
     }
 
@@ -92,8 +108,8 @@ public class Mago extends Jogador{
         return "";
     }
 
-    @Override 
-    Integer mostrarNivel(){
+    @Override
+    public Integer mostrarNivel(){
         return this.nivel;
     }
 
@@ -108,11 +124,6 @@ public class Mago extends Jogador{
     }
 
     @Override
-    public Item equiparItem() {
-        return this.item;
-    }
-
-    @Override
     public void item(double dano, String nome, String tipo) {
         if (tipo == "dano") {
             this.danoItem = dano;
@@ -124,11 +135,8 @@ public class Mago extends Jogador{
             this.stItem = dano;
             this.nomeItem = nome;
         }
-        this.inventario.add(nome);
-
-//        for (int i = 0; i < this.inventario.size(); i++){
-//            System.out.println("Item do seu inventário: " + this.inventario.get(0));
-//        }
+        inventarioNome.add(nome);
+        inventarioDano.add(dano);
     }
 
     @Override
@@ -153,9 +161,9 @@ public class Mago extends Jogador{
 
     @Override
     public void mostrarInventario() {
-        System.out.print("Você tem os seguintes itens no iventário: ");
-        for (int i = 0; i < this.inventario.size(); i++){
-            System.out.print(" " + this.inventario.get(i) + " ");
+        System.out.println("Você tem os seguintes itens no iventário: ");
+        for (String item : inventarioNome) {
+            System.out.println("1 ---> " + item);
         }
     }
 

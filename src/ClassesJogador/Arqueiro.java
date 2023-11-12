@@ -3,6 +3,7 @@ package ClassesJogador;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Arqueiro extends Jogador{
 
@@ -17,27 +18,44 @@ public class Arqueiro extends Jogador{
     protected double danoItem;
     protected double hpItem;
     protected double stItem;
-    protected Item item;
-    protected static List<String> inventario =  new ArrayList<>();
+    protected static List<String> inventarioNome =  new ArrayList<>();
+    protected static List<Double> inventarioDano = new ArrayList<>();
+
 
     public Arqueiro(String nome) {
         super(nome);
-        this.item = new Item(this);
+    }
+
+    @Override
+    public void equiparItem() {
+        this.mostrarInventario();
+        Scanner scanner = new Scanner(System.in);
+        int escolha = scanner.nextInt();
+        for (int i = 0; i < inventarioDano.size(); i++){
+            if (escolha == i){
+                inventarioDano.get(i);
+            } else {
+                System.out.println("Opção inválida.");
+                this.equiparItem();
+            }
+        }
+
     }
 
 
     @Override
     public  double causarDano() {
-        return this.dano;
+        return dano + this.danoItem;
     }
 
-    @Override // alterar
+    @Override
+    public // alterar
     double usarSt() {
         return 0;
     }
 
     @Override
-    double mostrarSt() {
+    public double mostrarSt() {
         return this.st;
     }
 
@@ -47,11 +65,11 @@ public class Arqueiro extends Jogador{
     }
 
     @Override
-    void aumentarHp(double item) {
+    public void aumentarHp(double item) {
     }
 
     @Override
-    void aumentarSt(double item) {
+    public void aumentarSt(double item) {
 
     }
 
@@ -92,7 +110,7 @@ public class Arqueiro extends Jogador{
     }
 
     @Override
-    Integer mostrarNivel() {
+    public Integer mostrarNivel() {
         return this.nivel;
     }
 
@@ -106,10 +124,6 @@ public class Arqueiro extends Jogador{
         return this.exp;
     }
 
-    @Override
-    public Item equiparItem() {
-        return this.item;
-    }
 
     @Override
     public void item(double dano, String nome, String tipo) {
@@ -123,7 +137,8 @@ public class Arqueiro extends Jogador{
             this.stItem = dano;
             this.nomeItem = nome;
         }
-        this.inventario.add(this.nomeItem);
+        inventarioNome.add(this.nomeItem);
+        inventarioDano.add(this.danoItem);
     }
 
     @Override
@@ -148,9 +163,10 @@ public class Arqueiro extends Jogador{
 
     @Override
     public void mostrarInventario() {
-        System.out.print("Você tem os seguintes itens no iventário: ");
-        for (int i = 0; i < this.inventario.size(); i++){
-            System.out.print(" " + this.inventario.get(i) + " ");
+        System.out.println("Você tem os seguintes itens no iventário: ");
+        for (String item : inventarioNome) {
+            System.out.println("1 ---> " + item);
+
         }
     }
 

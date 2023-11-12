@@ -5,17 +5,18 @@ public abstract class Jogador extends Propriedades{
     public Jogador(String nome) {
         super(nome);
     }
-    abstract double usarSt();
-    abstract double mostrarSt();
+
+    public abstract void equiparItem();
+    public abstract double usarSt();
+    public abstract double mostrarSt();
     public abstract void aumentarDano(double item);
-    abstract void aumentarHp(double item);
-    abstract void aumentarSt(double item);
+    public abstract void aumentarHp(double item);
+    public abstract void aumentarSt(double item);
     double mostrarExp;
     public abstract String aumentarNivel(double experi);
-    abstract Integer mostrarNivel();
+    public abstract Integer mostrarNivel();
     public abstract void aumentarExp (double exper);
     public abstract double mostrarExp();
-    public abstract Item equiparItem();
     public abstract void item(double dano, String nome, String tipo);
     public abstract double getDanoItem();
     public abstract double getHpItem();
