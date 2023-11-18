@@ -40,8 +40,8 @@ public class Fungo extends Inimigo{
 
     @Override
     public void nivel(int fase) {
-        this.dano += this.dano*(fase*10/100);
-        this.hp += this.hp*(fase*10/100);
+        this.dano += this.dano*(fase*10.0/100.0);
+        this.hp += this.hp*(fase*10.0/100.0);
         this.nivel = fase;
     }
 

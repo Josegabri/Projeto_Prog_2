@@ -15,7 +15,7 @@ public class Batalha{
     private String nome;
     private int opcao;
     private String ganhador;
-    private int fase = 1;
+    private int fase;
 
     //private Item item;
     private Random aleatorio = new Random();
@@ -63,7 +63,8 @@ public class Batalha{
     // Adicionar um "inimigo_2" igual o inimigo a cima, em que só irá ter
     // inimigos de nível 2 nas escolhas, e assim por diante.
 
-    public void batalha(){
+    public void batalha(int fase_sel){
+        this.fase = fase_sel;
         Jogador jogador = escolha(this.opcao);
         Inimigo inimigo = inimigo(this.aleatorio.nextInt(2));
 

@@ -17,12 +17,12 @@ public class Main {
         int classe = scanner.nextInt();
         scanner.nextLine();
         Batalha batalha = new Batalha(nome, classe);
-        batalha.batalha();
+        batalha.batalha(1);
         System.out.println("ROUND 2");
 
-        batalha.batalha();
+        batalha.batalha(2);
         System.out.println("ROUND 3");
-        batalha.batalha();
+        batalha.batalha(3);
 
         scanner.close();
     }
