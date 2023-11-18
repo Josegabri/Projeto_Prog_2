@@ -1,6 +1,7 @@
 package Entities;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import ClassesInimigos.Caveira;
 import ClassesInimigos.Fungo;
@@ -12,6 +13,7 @@ import ClassesJogador.Mago;
 import ClassesJogador.ItemDecorator;
 
 public class Batalha{
+    Scanner scanner = new Scanner(System.in);
     private String nome;
     private int opcao;
     private String ganhador;
@@ -75,10 +77,20 @@ public class Batalha{
 
         while ( (ganhador != jogador.nome) && (ganhador != inimigo.nome)){
             ItemDecorator jogadorEquipado = new ItemDecorator(this.nome, jogador);
-            if (rodada == 0){
+            if (rodada == 0){ 
+                System.out.println("Escolha sua ação: ");
+                System.out.println("1 - Ataque Básico");
+                System.out.println("2 - Habilidade");
+                System.out.println("3 - Itens Usáveis");
+                System.out.println();
+                int acao = scanner.nextInt();
+
+                if (acao == 1 ){
                 System.out.println( inimigo.nome+ " recebeu "
                 +jogadorEquipado.mostrarDano()+ " de dano do "+ jogadorEquipado.nome);
                 inimigo.receberDano(jogadorEquipado.causarDano());
+                }
+
                 System.out.println(inimigo.nome + " está com "+inimigo.mostrarHp()+
                 " de vida.");
                 System.out.println(jogadorEquipado.nome + " está com " + jogadorEquipado.mostrarHp()+
@@ -124,5 +136,4 @@ public class Batalha{
     public String getGanhador() {
         return ganhador;
     }
-    
 }

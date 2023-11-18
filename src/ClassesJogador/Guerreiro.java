@@ -161,7 +161,7 @@ public class Guerreiro extends Jogador {
 
     @Override
     public void mostrarInventario() {
-        System.out.println("Você tem os seguintes itens no iventário: ");
+        System.out.println("Você tem os seguintes itens no inventário: ");
         for (String item : inventarioNome) {
             System.out.println("1 ---> " + item);
 

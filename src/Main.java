@@ -17,7 +17,9 @@ public class Main {
         int classe = scanner.nextInt();
         scanner.nextLine();
         Batalha batalha = new Batalha(nome, classe);
+        
         batalha.batalha(1);
+        
         System.out.println("ROUND 2");
 
         batalha.batalha(2);

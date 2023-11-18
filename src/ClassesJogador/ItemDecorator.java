@@ -47,7 +47,7 @@ public class ItemDecorator extends Jogador {
     @Override
     public String aumentarNivel(double experi) {
         jogador.aumentarNivel(experi);
-        return "Aumento de nivel";
+        return "";
     }
 
     @Override
