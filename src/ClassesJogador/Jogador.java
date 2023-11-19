@@ -49,13 +49,16 @@ public abstract class Jogador extends Propriedades{
 
                     if(inventarioNome.get(i) == "Colar comum" || inventarioNome.get(i) == "Colar raro" || inventarioNome.get(i) == "Colar lendário"){
                         this.setStItem(inventarioValor.get(i));
-                        System.out.println("Você escolheu o item: " + inventarioNome.get(i) +" de st: " + inventarioValor.get(i));
+                        System.out.println("Você equipou item " + inventarioNome.get(i) + " seu ST aumentou em " + inventarioValor.get(i));
+                        System.out.println("Seu ST atual é de: " + this.mostrarSt());
                     }else if(inventarioNome.get(i) == "Armadura comum" || inventarioNome.get(i) == "Armadura rara" || inventarioNome.get(i) == "Armadura lendária"){
                         this.setHpItem(inventarioValor.get(i));
-                        System.out.println("Você escolheu o item: " + inventarioNome.get(i) +" de hp: " + inventarioValor.get(i));
+                        System.out.println("Você equipou item " + inventarioNome.get(i) + " seu HP aumentou em " + inventarioValor.get(i));
+                        System.out.println("Seu HP atual é de: " + this.mostrarHp());
                     }else{
                         this.setDanoItem(inventarioValor.get(i));
-                        System.out.println("Você escolheu o item: " + inventarioNome.get(i) +" de dano: " + inventarioValor.get(i));
+                        System.out.println("Você equipou o item " + inventarioNome.get(i) +" de dano: " + inventarioValor.get(i));
+                        System.out.println("Seu dano atual é de: " + this.causarDano());
                     }
 
                 }
