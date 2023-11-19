@@ -13,33 +13,15 @@ public class Arqueiro extends Jogador{
     protected static Integer nivel = 1;
     protected static double exp;
     protected static double min_exp = nivel* 10;
-//    protected double item = 0;
+    //    protected double item = 0;
     protected String nomeItem;
-    protected double danoItem;
-    protected double hpItem;
-    protected double stItem;
-    protected static List<String> inventarioNome =  new ArrayList<>();
-    protected static List<Double> inventarioDano = new ArrayList<>();
+    protected double danoItem = 0;
+    protected double hpItem = 0;
+    protected double stItem = 0;
 
 
     public Arqueiro(String nome) {
         super(nome);
-    }
-
-    @Override
-    public void equiparItem() {
-        this.mostrarInventario();
-        Scanner scanner = new Scanner(System.in);
-        int escolha = scanner.nextInt();
-        for (int i = 0; i < inventarioDano.size(); i++){
-            if (escolha == i){
-                inventarioDano.get(i);
-            } else {
-                System.out.println("Opção inválida.");
-                this.equiparItem();
-            }
-        }
-
     }
 
 
@@ -56,12 +38,12 @@ public class Arqueiro extends Jogador{
 
     @Override
     public double mostrarSt() {
-        return this.st;
+        return st;
     }
 
     @Override
     public void aumentarDano(double item) {
-        this.dano += item;
+        dano += item;
     }
 
     @Override
@@ -75,18 +57,18 @@ public class Arqueiro extends Jogador{
 
     @Override
     public double receberDano(double dano) {
-        this.hp -= dano;
-        return this.hp;
+        hp -= dano;
+        return hp;
     }
 
     @Override
     public double mostrarHp() {
-        return this.hp;
+        return hp;
     }
 
     @Override
     public double mostrarDano() {
-        return this.dano;
+        return dano;
     }
 
     @Override
@@ -111,39 +93,52 @@ public class Arqueiro extends Jogador{
 
     @Override
     public Integer mostrarNivel() {
-        return this.nivel;
+        return nivel;
     }
 
     @Override
-    
+
     public void aumentarExp(double exper) {
     }
 
     @Override
     public double mostrarExp() {
-        return this.exp;
+        return exp;
     }
 
 
     @Override
     public void item(double dano, String nome, String tipo) {
-        if (tipo == "dano") {
-            this.danoItem = dano;
-            this.nomeItem = nome;
-        } else if (tipo == "hp"){
-            this.hpItem = dano;
-            this.nomeItem = nome;
-        } else {
-            this.stItem = dano;
-            this.nomeItem = nome;
-        }
-        inventarioNome.add(this.nomeItem);
-        inventarioDano.add(this.danoItem);
+        inventarioNome.add(nome);
+        inventarioValor.add(dano);
     }
 
     @Override
     public double getDanoItem() {
         return this.danoItem;
+    }
+    @Override
+    public void setDanoItem(Double dano) {
+        this.danoItem = dano;
+    }
+
+    @Override
+    public void setHpItem(Double hpItem) {
+        hp-= this.hpItem;
+        this.hpItem = hpItem;
+        hp+= this.hpItem;
+    }
+
+    @Override
+    public void setStItem(Double stItem) {
+        st-= this.stItem;
+        this.stItem = stItem;
+        st+= this.stItem;
+    }
+
+    @Override
+    public void dropItem(int opcao) {
+
     }
 
     @Override
@@ -161,13 +156,5 @@ public class Arqueiro extends Jogador{
         return this.nomeItem;
     }
 
-    @Override
-    public void mostrarInventario() {
-        System.out.println("Você tem os seguintes itens no iventário: ");
-        for (String item : inventarioNome) {
-            System.out.println("1 ---> " + item);
-
-        }
-    }
 
 }

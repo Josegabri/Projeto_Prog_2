@@ -6,18 +6,17 @@ import java.util.Scanner;
 
 public class Guerreiro extends Jogador {
 
+
     protected static double dano = 10;
     protected static double hp = 25;
     protected static double st = 10;
     protected static Integer nivel = 1;
     protected static double exp = 0;
     protected static double min_exp = nivel * 8;
-    protected double danoItem;
-    protected double hpItem;
-    protected double stItem;
+    protected double danoItem = 0;
+    protected double hpItem = 0;
+    protected double stItem = 0;
     protected String nomeItem;
-    protected static List<String> inventarioNome = new ArrayList<>();
-    protected static List<Double> inventarioDano = new ArrayList<>();
 
 
     public Guerreiro(String nome) {
@@ -26,57 +25,41 @@ public class Guerreiro extends Jogador {
     }
 
     @Override
-    public void equiparItem() {
-        this.mostrarInventario();
-        Scanner scanner = new Scanner(System.in);
-        int escolha = scanner.nextInt();
-        for (int i = 0; i < inventarioDano.size(); i++) {
-            if (escolha == i) {
-                inventarioDano.get(i);
-            } else {
-                System.out.println("Opção inválida.");
-                this.equiparItem();
-            }
-        }
-
-    }
-
-    @Override
     public double causarDano() {
-        return dano + this.danoItem;
+        return dano + danoItem;
     }
 
     @Override
     public // ainda para ser alterado
     double usarSt() {
-        this.st -= 7;
-        return this.dano + 4;
+        st -= 7;
+        return dano + 4;
     }
 
     @Override
     public double receberDano(double dano) {
-        this.hp -= dano;
-        return this.hp;
+        hp -= dano;
+        return hp;
     }
 
     @Override
     public double mostrarHp() {
-        return this.hp;
+        return hp;
     }
 
     @Override
     public double mostrarDano() {
-        return this.dano;
+        return dano;
     }
 
     @Override
     public double mostrarSt() {
-        return this.st;
+        return st;
     }
 
     @Override
     public void aumentarDano(double item) {
-        this.dano += item;
+        dano += item;
     }
 
     @Override
@@ -126,22 +109,36 @@ public class Guerreiro extends Jogador {
 
     @Override
     public void item(double dano, String nome, String tipo) {
-        if (tipo == "dano") {
-            this.danoItem = dano;
-            this.nomeItem = nome;
-        } else if (tipo == "hp") {
-            this.hpItem = dano;
-            this.nomeItem = nome;
-        } else {
-            this.stItem = dano;
-            this.nomeItem = nome;
-        }
-        inventarioNome.add(this.nomeItem);
+        inventarioNome.add(nome);
+        inventarioValor.add(dano);
     }
 
     @Override
     public double getDanoItem() {
         return this.danoItem;
+    }
+    @Override
+    public void setDanoItem(Double dano) {
+        this.danoItem = dano;
+    }
+
+    @Override
+    public void setHpItem(Double hpItem) {
+        hp-= this.hpItem;
+        this.hpItem = hpItem;
+        hp+= this.hpItem;
+    }
+
+    @Override
+    public void setStItem(Double stItem) {
+        st-= this.stItem;
+        this.stItem = stItem;
+        st+= this.stItem;
+    }
+
+    @Override
+    public void dropItem(int opcao) {
+
     }
 
     @Override
@@ -159,13 +156,8 @@ public class Guerreiro extends Jogador {
         return this.nomeItem;
     }
 
-    @Override
-    public void mostrarInventario() {
-        System.out.println("Você tem os seguintes itens no inventário: ");
-        for (String item : inventarioNome) {
-            System.out.println("1 ---> " + item);
 
-        }
 
-    }
+
+
 }

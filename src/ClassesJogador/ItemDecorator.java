@@ -16,7 +16,7 @@ public class ItemDecorator extends Jogador {
 
     @Override
     public void equiparItem() {
-
+        jogador.equiparItem();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ItemDecorator extends Jogador {
     @Override
     public String aumentarNivel(double experi) {
         jogador.aumentarNivel(experi);
-        return "";
+        return "Aumento de nivel";
     }
 
     @Override
@@ -91,6 +91,21 @@ public class ItemDecorator extends Jogador {
     }
 
     @Override
+    public void setDanoItem(Double danoItem) {
+        jogador.setDanoItem(danoItem);
+    }
+
+    @Override
+    public void setStItem(Double stItem) {
+        jogador.setStItem(stItem);
+    }
+
+    @Override
+    public void setHpItem(Double hpItem) {
+        jogador.setHpItem(hpItem);
+    }
+
+    @Override
     public void mostrarInventario() {
         jogador.mostrarInventario();
     }
@@ -115,8 +130,8 @@ public class ItemDecorator extends Jogador {
         return jogador.mostrarDano();
     }
 
-    //Algoritmo de classe e tipo de item
-    public void classeItem(int opcao) {
+    //Dropa um item de acordo com a classe
+    public void dropItem(int opcao) {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
         if(opcao == 1){
