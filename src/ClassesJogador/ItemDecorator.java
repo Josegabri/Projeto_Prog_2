@@ -45,9 +45,9 @@ public class ItemDecorator extends Jogador {
     }
 
     @Override
-    public String aumentarNivel(double experi) {
+    public void aumentarNivel(double experi) {
         jogador.aumentarNivel(experi);
-        return "Aumento de nivel";
+        
     }
 
     @Override
@@ -128,6 +128,11 @@ public class ItemDecorator extends Jogador {
     @Override
     public double mostrarDano() {
         return jogador.mostrarDano();
+    }
+
+    @Override
+    public void aumentarStatus() {
+        jogador.aumentarStatus();
     }
 
     //Dropa um item de acordo com a classe

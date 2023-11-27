@@ -13,9 +13,8 @@ public class Arqueiro extends Jogador{
     protected static Integer nivel = 1;
     protected static double exp;
     protected static double min_exp = nivel* 10;
-    //    protected double item = 0;
     protected String nomeItem;
-    protected double danoItem = 0;
+    protected static double danoItem = 0;
     protected double hpItem = 0;
     protected double stItem = 0;
 
@@ -72,7 +71,7 @@ public class Arqueiro extends Jogador{
     }
 
     @Override
-    public String aumentarNivel(double experi) {
+    public void aumentarNivel(double experi) {
         exp += experi;
         System.out.println("Minimo necessário para passar de nivel: " + min_exp);
         System.out.println("Você ganhou " + experi + " de Experiência!!!!!!!!!!!");
@@ -88,7 +87,7 @@ public class Arqueiro extends Jogador{
         } else {
             System.out.println("Você precisa de " + (min_exp - exp) + " para passar de nivel");
         }
-        return "";
+        
     }
 
     @Override
@@ -154,6 +153,13 @@ public class Arqueiro extends Jogador{
     @Override
     public String getNomeItem() {
         return this.nomeItem;
+    }
+
+    @Override
+    public void aumentarStatus() {
+        dano += dano*(10.0/100.0);
+        hp += hp*(10.0/100.0);
+        st += st*(10.0/100.0);
     }
 
 

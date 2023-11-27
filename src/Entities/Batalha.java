@@ -76,6 +76,10 @@ public class Batalha{
         int rodada = 0;
         ganhador =null;
         System.out.println("\n"+inimigo.nome + " APARECEU!!\n");
+        System.out.println("Dano do jogador: " + jogador.mostrarDano());
+        System.out.println("Vida do jogador: " + jogador.mostrarHp());
+        System.out.println("ST do jogador: "+ jogador.mostrarSt());
+
 
         while ( (ganhador != jogador.nome) && (ganhador != inimigo.nome)){
             if (rodada == 0){ 
@@ -119,7 +123,7 @@ public class Batalha{
                 ganhador = jogador.nome;
                 System.out.println("\nO vencedor da batalha foi "+jogador.nome);
 
-                System.out.println(jogador.aumentarNivel(inimigo.mostrarDropexp()));
+                jogador.aumentarNivel(inimigo.mostrarDropexp());
 
                 jogador.dropItem(this.opcao);
                 jogador.equiparItem();

@@ -41,8 +41,9 @@ public class Caveira extends Inimigo{
 
     @Override
     public void nivel(int fase) {
-        this.dano += this.dano*(fase*10.0/100.0);
-        this.hp += this.hp*(fase*10.0/100.0);
+        this.nivel -= fase;
+        this.dano += this.dano*(this.nivel*10.0/100.0);
+        this.hp += this.hp*(this.nivel*10.0/100.0);
         this.nivel = fase;
     }
 

@@ -17,7 +17,7 @@ public abstract class Jogador extends Propriedades{
     public abstract void aumentarHp(double item);
     public abstract void aumentarSt(double item);
     double mostrarExp;
-    public abstract String aumentarNivel(double experi);
+    public abstract void aumentarNivel(double experi);
     public abstract Integer mostrarNivel();
     public abstract void aumentarExp (double exper);
     public abstract double mostrarExp();
@@ -30,6 +30,7 @@ public abstract class Jogador extends Propriedades{
     public abstract void setStItem(Double stItem);
     public abstract void setHpItem(Double hpItem);
     public abstract void dropItem(int opcao);
+    public abstract void aumentarStatus();
 
     public void mostrarInventario() {
         System.out.println("Você tem os seguintes itens no iventário: ");
