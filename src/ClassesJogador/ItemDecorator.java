@@ -20,11 +20,6 @@ public class ItemDecorator extends Jogador {
     }
 
     @Override
-    public double usarSt() {
-        return jogador.usarSt();
-    }
-
-    @Override
     public double mostrarSt() {
         return jogador.mostrarSt();
     }
@@ -42,6 +37,11 @@ public class ItemDecorator extends Jogador {
     @Override
     public void aumentarSt(double item) {
         jogador.aumentarSt(item);
+    }
+
+    @Override
+    public void setSt(double stValue) {
+        jogador.setSt(stValue);
     }
 
     @Override
@@ -134,6 +134,26 @@ public class ItemDecorator extends Jogador {
     public void aumentarStatus() {
         jogador.aumentarStatus();
     }
+
+    @Override
+    public double habilidades(int escolha) {
+        if (escolha == 1) {
+            jogador.setSt(jogador.mostrarSt() - (jogador.mostrarSt()* (20.0 / 100.0)));
+            System.out.println("Habilidade escolhida: " + this.causarDano());
+            return this.causarDano() + (this.causarDano()*(10.0 / 100.0));
+
+        } else if (escolha == 2) {
+            jogador.setSt(jogador.mostrarSt() - (jogador.mostrarSt()* (40.0 / 100.0)));
+            return this.causarDano() + (this.causarDano() * (40.0 / 100.0));
+        } else if (escolha == 3) {
+            jogador.setSt(jogador.mostrarSt() - (jogador.mostrarSt()* (60.0 / 100.0)));
+            return this.causarDano() + (this.causarDano() * (60.0 / 100.0));
+        } else {
+            jogador.setSt(jogador.mostrarSt() - (jogador.mostrarSt()* (80.0 / 100.0)));
+            return this.causarDano() + (this.causarDano() * (80.0 / 100.0));
+        }
+    }
+
 
     //Dropa um item de acordo com a classe
     public void dropItem(int opcao) {

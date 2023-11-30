@@ -30,13 +30,6 @@ public class Guerreiro extends Jogador {
     }
 
     @Override
-    public // ainda para ser alterado
-    double usarSt() {
-        st -= 7;
-        return dano + 4;
-    }
-
-    @Override
     public double receberDano(double dano) {
         hp -= dano;
         return hp;
@@ -69,6 +62,11 @@ public class Guerreiro extends Jogador {
     @Override
     public void aumentarSt(double item) {
 
+    }
+
+    @Override
+    public void setSt(double stValue) {
+        st = stValue;
     }
 
     @Override
@@ -169,6 +167,10 @@ public class Guerreiro extends Jogador {
         st += st*(10.0/100.0);
     }
 
+    @Override
+    public double habilidades(int escolha) {
+        return 0;
+    }
 
 
 }

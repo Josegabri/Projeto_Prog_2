@@ -1,16 +1,19 @@
 package ClassesJogador;
 
-public class Mago extends Jogador{
+import java.util.Scanner;
+
+public class Mago extends Jogador {
     protected static double dano = 15;
     protected static double hp = 15;
     protected static double st = 10;
     protected static Integer nivel = 1;
-    protected static double exp= 0;
-    protected static double min_exp = nivel* 15;
+    protected static double exp = 0;
+    protected static double min_exp = nivel * 15;
     protected String nomeItem;
     protected static double danoItem = 0;
     protected double hpItem = 0;
     protected double stItem = 0;
+    protected Scanner scanner = new Scanner(System.in);
 
 
     public Mago(String nome) {
@@ -23,26 +26,18 @@ public class Mago extends Jogador{
     }
 
     @Override
-    public double usarSt() {
-        st -= 4;
-        return dano + 4;
-    }
-
-    @Override
     public double receberDano(double dano) {
         hp -= dano;
         return hp;
     }
 
     @Override
-    public
-    double mostrarHp() {
+    public double mostrarHp() {
         return hp;
     }
 
     @Override
-    public
-    double mostrarDano() {
+    public double mostrarDano() {
         return dano + this.danoItem;
     }
 
@@ -66,22 +61,27 @@ public class Mago extends Jogador{
     }
 
     @Override
-    public void aumentarNivel(double experi){ //mostrarExp() como parâmentro
+    public void setSt(double stValue) {
+        st = stValue;
+    }
+
+    @Override
+    public void aumentarNivel(double experi) { //mostrarExp() como parâmentro
         exp += experi;
         System.out.println("Minimo necessário para passar de nivel: " + min_exp);
         System.out.println("Você ganhou " + experi + " de Experiência!!!!!!!!!!!");
-        if (exp > min_exp){
+        if (exp > min_exp) {
             System.out.println("!!!!!!!! Você passou de nivel !!!!!!!");
             exp -= min_exp;
-            nivel +=1;
-            min_exp = nivel*8;
+            nivel += 1;
+            min_exp = nivel * 8;
             System.out.println("Você está no nivel " + nivel);
-            System.out.println("Você possui " + exp +" no nivel " + nivel);
+            System.out.println("Você possui " + exp + " no nivel " + nivel);
             System.out.println("Você precisa de " + min_exp + " Para ir ao próximo nivel!!!!!!!!!!!");
             System.out.println("Seus Status aumentaram!!!!");
-            System.out.println("Dano aumentado em: " + dano*(10.0/100.0));
-            System.out.println("Dano aumentado em: " + hp*(10.0/100.0));
-            System.out.println("Dano aumentado em: " + st*(10.0/100.0));
+            System.out.println("Dano aumentado em: " + dano * (10.0 / 100.0));
+            System.out.println("Dano aumentado em: " + hp * (10.0 / 100.0));
+            System.out.println("Dano aumentado em: " + st * (10.0 / 100.0));
             this.aumentarStatus();
 
         } else {
@@ -90,17 +90,16 @@ public class Mago extends Jogador{
     }
 
     @Override
-    public Integer mostrarNivel(){
+    public Integer mostrarNivel() {
         return nivel;
     }
 
     @Override
-    public
-    void aumentarExp(double exper){
+    public void aumentarExp(double exper) {
     }
 
     @Override
-    public double mostrarExp(){
+    public double mostrarExp() {
         return exp;
     }
 
@@ -114,6 +113,7 @@ public class Mago extends Jogador{
     public double getDanoItem() {
         return this.danoItem;
     }
+
     @Override
     public void setDanoItem(Double dano) {
         this.danoItem = dano;
@@ -155,12 +155,13 @@ public class Mago extends Jogador{
 
     @Override
     public void aumentarStatus() {
-        dano += dano*(10.0/100.0);
-        hp += hp*(10.0/100.0);
-        st += st*(10.0/100.0);
+        dano += dano * (10.0 / 100.0);
+        hp += hp * (10.0 / 100.0);
+        st += st * (10.0 / 100.0);
     }
 
-
-
-
+    @Override
+    public double habilidades(int escolha) {
+        return 0;
+    }
 }

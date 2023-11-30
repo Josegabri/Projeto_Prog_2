@@ -29,11 +29,6 @@ public class Arqueiro extends Jogador{
         return dano + this.danoItem;
     }
 
-    @Override
-    public // alterar
-    double usarSt() {
-        return 0;
-    }
 
     @Override
     public double mostrarSt() {
@@ -52,6 +47,11 @@ public class Arqueiro extends Jogador{
     @Override
     public void aumentarSt(double item) {
 
+    }
+
+    @Override
+    public void setSt(double stValeu) {
+        st = stValeu;
     }
 
     @Override
@@ -165,6 +165,11 @@ public class Arqueiro extends Jogador{
         dano += dano*(10.0/100.0);
         hp += hp*(10.0/100.0);
         st += st*(10.0/100.0);
+    }
+
+    @Override
+    public double habilidades(int escolha) {
+        return 0;
     }
 
 
