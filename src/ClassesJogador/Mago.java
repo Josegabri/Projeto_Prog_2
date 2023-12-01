@@ -164,4 +164,14 @@ public class Mago extends Jogador {
     public double habilidades(int escolha) {
         return 0;
     }
+
+    @Override
+    public void mostrarHabilidades(int opcao) {
+
+    }
+
+    @Override
+    public void equiparItem() {
+
+    }
 }

@@ -1,141 +1,152 @@
 package ClassesJogador;
 
 import java.util.Random;
-import java.util.Scanner;
 
+public class ClasseHabilidade extends ItemDecorator{
+    public ClasseHabilidade(String nome, Jogador jogador) {
+        super(nome, jogador);
+    }
 
-//Decorador Item para a classe jogador
-public class ItemDecorator extends Jogador {
-
-    private final Jogador jogador;
-    public ItemDecorator(String nome, Jogador jogador) {
-        super(nome);
-        this.jogador = jogador;
+    public void equiparItem() {
+        super.equiparItem();
     }
 
     @Override
     public double mostrarSt() {
-        return jogador.mostrarSt();
+        return super.mostrarSt();
     }
 
     @Override
     public void aumentarDano(double item) {
-        jogador.aumentarDano(item);
+        super.aumentarDano(item);
     }
 
     @Override
     public void aumentarHp(double item) {
-        jogador.aumentarHp(item);
+        super.aumentarHp(item);
     }
 
     @Override
     public void aumentarSt(double item) {
-        jogador.aumentarSt(item);
+        super.aumentarSt(item);
     }
 
     @Override
     public void setSt(double stValue) {
-        jogador.setSt(stValue);
+        super.setSt(stValue);
     }
 
     @Override
     public void aumentarNivel(double experi) {
-        jogador.aumentarNivel(experi);
-        
+        super.aumentarNivel(experi);
+
     }
 
     @Override
     public Integer mostrarNivel() {
-        return jogador.mostrarNivel();
+        return super.mostrarNivel();
     }
 
     @Override
     public void aumentarExp(double exper) {
-        jogador.aumentarExp(exper);
+        super.aumentarExp(exper);
     }
 
     @Override
     public double mostrarExp() {
-        return jogador.mostrarExp();
+        return super.mostrarExp();
     }
 
     @Override
     public void item(double dano, String nome, String tipo) {
-        jogador.item(dano, nome, tipo);
+        super.item(dano, nome, tipo);
     }
 
     @Override
     public double getDanoItem() {
-        return jogador.getDanoItem();
+        return super.getDanoItem();
     }
 
     @Override
     public double getHpItem() {
-        return jogador.getHpItem();
+        return super.getHpItem();
     }
 
     @Override
     public double getStItem() {
-        return jogador.getStItem();
+        return super.getStItem();
     }
 
     @Override
     public String getNomeItem() {
-        return jogador.getNomeItem();
+        return super.getNomeItem();
     }
 
     @Override
     public void setDanoItem(Double danoItem) {
-        jogador.setDanoItem(danoItem);
+        super.setDanoItem(danoItem);
     }
 
     @Override
     public void setStItem(Double stItem) {
-        jogador.setStItem(stItem);
+        super.setStItem(stItem);
     }
 
     @Override
     public void setHpItem(Double hpItem) {
-        jogador.setHpItem(hpItem);
+        super.setHpItem(hpItem);
     }
 
     @Override
     public void mostrarInventario() {
-        jogador.mostrarInventario();
+        super.mostrarInventario();
     }
 
     @Override
     public double causarDano() {
-        return jogador.causarDano();
+        return super.causarDano();
     }
 
     @Override
     public double receberDano(double dano) {
-        return jogador.receberDano(dano);
+        return super.receberDano(dano);
     }
 
     @Override
     public double mostrarHp() {
-        return jogador.mostrarHp();
+        return super.mostrarHp();
     }
 
     @Override
     public double mostrarDano() {
-        return jogador.mostrarDano();
+        return super.mostrarDano();
     }
 
     @Override
     public void aumentarStatus() {
-        jogador.aumentarStatus();
+        super.aumentarStatus();
     }
 
     @Override
     public double habilidades(int escolha) {
-        return 0;
+        if (escolha == 1) {
+            super.setSt(super.mostrarSt() - (super.mostrarSt()* (20.0 / 100.0)));
+            return super.causarDano() + (super.causarDano()*(10.0 / 100.0));
+        } else if (escolha == 2) {
+            super.setSt(super.mostrarSt() - (super.mostrarSt()* (40.0 / 100.0)));
+            return super.causarDano() + (super.causarDano() * (40.0 / 100.0));
+        } else if (escolha == 3) {
+            super.setSt(super.mostrarSt() - (super.mostrarSt()* (60.0 / 100.0)));
+            return super.causarDano() + (super.causarDano() * (60.0 / 100.0));
+        } else {
+            super.setSt(super.mostrarSt() - (super.mostrarSt()* (80.0 / 100.0)));
+            return super.causarDano() + (super.causarDano() * (80.0 / 100.0));
+        }
     }
 
 
     //Dropa um item de acordo com a classe
+    @Override
     public void dropItem(int opcao) {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
@@ -169,108 +180,94 @@ public class ItemDecorator extends Jogador {
 
 
     //Algoritmo de chance de drop de item
+    @Override
     public void itemMago() {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
-            this.jogador.item(5, "Cajado comum", "dano");
+            super.item(5, "Cajado comum", "dano");
         } else if (valor <= 84) {
-            this.jogador.item(10, "Cajado raro", "dano");
+            super.item(10, "Cajado raro", "dano");
         } else if (valor <= 99) {
-            this.jogador.item(15, "Cajado lendário", "dano");
-        } else {
-            System.out.println("Nenhum item dropado");
-        }
-    }
-    public void itemGuerreiro() {
-        Random aleatorio = new Random();
-        int valor = aleatorio.nextInt(150);
-        if (valor <= 49) {
-            this.jogador.item(5, "Espada comum", "dano");
-        } else if (valor <= 84) {
-            this.jogador.item(10, "Espada rara", "dano");
-        } else if (valor <= 99) {
-            this.jogador.item(15, "Espada lendária", "dano");
-        } else {
-            System.out.println("Nenhum item dropado");
-        }
-
-    }
-    public void itemArqueiro() {
-        Random aleatorio = new Random();
-        int valor = aleatorio.nextInt(150);
-        if (valor <= 49) {
-            this.jogador.item(5, "Arco comum", "dano");
-        } else if (valor <= 84) {
-            this.jogador.item(10, "Arco raro", "dano");
-        } else if (valor <= 99) {
-            this.jogador.item(15, "Arco lendário", "dano");
-        } else {
-            System.out.println("Nenhum item dropado");
-        }
-    }
-
-    public void itemHp(){
-        Random aleatorio = new Random();
-        int valor = aleatorio.nextInt(150);
-        if (valor <= 49) {
-            this.jogador.item(5, "Armadura comum", "hp");
-        } else if (valor <= 84) {
-            this.jogador.item(10, "Armadura rara", "hp");
-        } else if (valor <= 99) {
-            this.jogador.item(15, "Armadura lendária", "hp");
-        } else {
-            System.out.println("Nenhum item dropado");
-        }
-    }
-
-    public void itemSt(){
-        Random aleatorio = new Random();
-        int valor = aleatorio.nextInt(150);
-        if (valor <= 49) {
-            this.jogador.item(5, "Colar comum", "st");
-        } else if (valor <= 84) {
-            this.jogador.item(10, "Colar raro", "st");
-        } else if (valor <= 99) {
-            this.jogador.item(15, "Colar lendário", "st");
+            super.item(15, "Cajado lendário", "dano");
         } else {
             System.out.println("Nenhum item dropado");
         }
     }
 
     @Override
-    public void equiparItem() {
-        this.mostrarInventario();
-        Scanner scanner = new Scanner(System.in);
-        if (!inventarioNome.isEmpty()) {
-            System.out.print("Escolha um item para usar: ");
-            int escolha = scanner.nextInt();
-            for (int i = 0; i < inventarioValor.size(); i++) {
-                if (escolha - 1 == i) {
+    public void itemGuerreiro() {
+        Random aleatorio = new Random();
+        int valor = aleatorio.nextInt(150);
+        if (valor <= 49) {
+            super.item(5, "Espada comum", "dano");
+        } else if (valor <= 84) {
+            super.item(10, "Espada rara", "dano");
+        } else if (valor <= 99) {
+            super.item(15, "Espada lendária", "dano");
+        } else {
+            System.out.println("Nenhum item dropado");
+        }
 
-                    if(inventarioNome.get(i) == "Colar comum" || inventarioNome.get(i) == "Colar raro" || inventarioNome.get(i) == "Colar lendário"){
-                        this.setStItem(inventarioValor.get(i));
-                        System.out.println("Você equipou item " + inventarioNome.get(i) + " seu ST aumentou em " + inventarioValor.get(i));
-                        System.out.println("Seu ST atual é de: " + this.mostrarSt());
-                    }else if(inventarioNome.get(i) == "Armadura comum" || inventarioNome.get(i) == "Armadura rara" || inventarioNome.get(i) == "Armadura lendária"){
-                        this.setHpItem(inventarioValor.get(i));
-                        System.out.println("Você equipou item " + inventarioNome.get(i) + " seu HP aumentou em " + inventarioValor.get(i));
-                        System.out.println("Seu HP atual é de: " + this.mostrarHp());
-                    }else{
-                        this.setDanoItem(inventarioValor.get(i));
-                        System.out.println("Você equipou o item " + inventarioNome.get(i) +" de dano: " + inventarioValor.get(i));
-                        System.out.println("Seu dano atual é de: " + this.causarDano());
-                    }
+    }
 
-                }
-            }
-        }else{
-            System.out.println("Você não possui nenhum item");
+    @Override
+    public void itemArqueiro() {
+        Random aleatorio = new Random();
+        int valor = aleatorio.nextInt(150);
+        if (valor <= 49) {
+            super.item(5, "Arco comum", "dano");
+        } else if (valor <= 84) {
+            super.item(10, "Arco raro", "dano");
+        } else if (valor <= 99) {
+            super.item(15, "Arco lendário", "dano");
+        } else {
+            System.out.println("Nenhum item dropado");
+        }
+    }
+
+    @Override
+    public void itemHp(){
+        Random aleatorio = new Random();
+        int valor = aleatorio.nextInt(150);
+        if (valor <= 49) {
+            super.item(5, "Armadura comum", "hp");
+        } else if (valor <= 84) {
+            super.item(10, "Armadura rara", "hp");
+        } else if (valor <= 99) {
+            super.item(15, "Armadura lendária", "hp");
+        } else {
+            System.out.println("Nenhum item dropado");
+        }
+    }
+
+
+    @Override
+    public void itemSt(){
+        Random aleatorio = new Random();
+        int valor = aleatorio.nextInt(150);
+        if (valor <= 49) {
+            super.item(5, "Colar comum", "st");
+        } else if (valor <= 84) {
+            super.item(10, "Colar raro", "st");
+        } else if (valor <= 99) {
+            super.item(15, "Colar lendário", "st");
+        } else {
+            System.out.println("Nenhum item dropado");
         }
     }
 
     @Override
     public void mostrarHabilidades(int opcao){
-
-    };
+        switch (opcao) {
+            case 1 ->
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Bola de fogo \n 2 --> Chama negra \n 3 --> Choque do trovão \n 4 --> Chuva de meteoro");
+            case 2 ->
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Espada perfurante \n 2 --> Tormenta de aço \n 3 --> Espada flamejante \n 4 --> Santoryu");
+            case 3 ->
+                    System.out.println("Qual habilidade você de seja usar: \n1 --> Flecha estuneante \n 2 --> Flecha avassaladora \n 3 --> Flecha sonica \n 4 --> Flecha divina");
+        }
+    }
 }
+
+

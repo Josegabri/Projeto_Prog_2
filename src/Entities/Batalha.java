@@ -15,11 +15,7 @@ import ClassesInimigos.Inimigo;
 import ClassesInimigos.Morcego;
 import ClassesInimigos.Rastejante_Tenebroso;
 import ClassesInimigos.Sanguessuga_Gigante;
-import ClassesJogador.Arqueiro;
-import ClassesJogador.Guerreiro;
-import ClassesJogador.Jogador;
-import ClassesJogador.Mago;
-import ClassesJogador.ItemDecorator;
+import ClassesJogador.*;
 
 public class Batalha {
     private static final String String = null;
@@ -103,6 +99,8 @@ public class Batalha {
         // código do desenvolvimento da batalha
         jogador = new ItemDecorator(this.nome, jogador);
 
+        jogador = new ClasseHabilidade(this.nome, jogador);
+
         int rodada = 0;
         ganhador = null;
         System.out.println("\n" + inimigo.nome + " APARECEU!!\n");
@@ -127,7 +125,7 @@ public class Batalha {
                             + jogador.causarDano() + " de dano do " + jogador.nome);
                     inimigo.receberDano(jogador.causarDano());
                 } else if (acao == 2) {
-                    System.out.println("Qual habilidade você de seja usar: \n1 --> Bola de fogo \n 2 --> Chama negra \n 3 --> Choque do trovão \n 4 --> Chuva de meteoro");
+                    jogador.mostrarHabilidades(this.opcao);
                     System.out.println("Você possui "+ jogador.mostrarSt() + " de St"  );
                     int escolha = scanner.nextInt();
                     if (jogador.mostrarSt() >= jogador.mostrarSt() - jogador.mostrarSt() * (20.0 / 100.0)) {

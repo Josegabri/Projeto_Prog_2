@@ -172,5 +172,15 @@ public class Arqueiro extends Jogador{
         return 0;
     }
 
+    @Override
+    public void mostrarHabilidades(int opcao) {
+
+    }
+
+    @Override
+    public void equiparItem() {
+
+    }
+
 
 }

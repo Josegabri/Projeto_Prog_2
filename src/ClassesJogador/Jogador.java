@@ -33,7 +33,10 @@ public abstract class Jogador extends Propriedades{
     public abstract void setHpItem(Double hpItem);
     public abstract void dropItem(int opcao);
     public abstract void aumentarStatus();
+    public abstract void equiparItem();
     public abstract double habilidades(int escolha);
+    public abstract void mostrarHabilidades(int opcao);
+
 
     public void mostrarInventario() {
         System.out.println("Você tem os seguintes itens no iventário: ");
@@ -42,33 +45,5 @@ public abstract class Jogador extends Propriedades{
         }
     }
 
-    public void equiparItem() {
-        this.mostrarInventario();
-        Scanner scanner = new Scanner(System.in);
-        if (!inventarioNome.isEmpty()) {
-            System.out.print("Escolha um item para usar: ");
-            int escolha = scanner.nextInt();
-            for (int i = 0; i < inventarioValor.size(); i++) {
-                if (escolha - 1 == i) {
 
-                    if(inventarioNome.get(i) == "Colar comum" || inventarioNome.get(i) == "Colar raro" || inventarioNome.get(i) == "Colar lendário"){
-                        this.setStItem(inventarioValor.get(i));
-                        System.out.println("Você equipou item " + inventarioNome.get(i) + " seu ST aumentou em " + inventarioValor.get(i));
-                        System.out.println("Seu ST atual é de: " + this.mostrarSt());
-                    }else if(inventarioNome.get(i) == "Armadura comum" || inventarioNome.get(i) == "Armadura rara" || inventarioNome.get(i) == "Armadura lendária"){
-                        this.setHpItem(inventarioValor.get(i));
-                        System.out.println("Você equipou item " + inventarioNome.get(i) + " seu HP aumentou em " + inventarioValor.get(i));
-                        System.out.println("Seu HP atual é de: " + this.mostrarHp());
-                    }else{
-                        this.setDanoItem(inventarioValor.get(i));
-                        System.out.println("Você equipou o item " + inventarioNome.get(i) +" de dano: " + inventarioValor.get(i));
-                        System.out.println("Seu dano atual é de: " + this.causarDano());
-                    }
-
-                }
-            }
-        }else{
-            System.out.println("Você não possui nenhum item");
-        }
-    }
 }
