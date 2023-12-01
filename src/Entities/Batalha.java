@@ -163,10 +163,7 @@ public class Batalha {
                                 " de vida.");
                         rodada = 0;
                     }
-                }
-
-                    // Define ganhador.
-                    if (jogador.mostrarHp() <= 0) { // inimigo vencedor
+                   if (jogador.mostrarHp() <= 0) { // inimigo vencedor
                         ganhador = inimigo.nome;
                         System.out.println("\nO vencedor da batalha foi " + inimigo.nome);
                     } else if (inimigo.mostrarHp() <= 0) { // jogador vencedor
@@ -177,13 +174,9 @@ public class Batalha {
 
                         jogador.dropItem(this.opcao);
                         jogador.equiparItem();
-
-
                     }
-                }
-
-
-
+                }       
+            }
         public String getGanhador() {
         return ganhador;
     }
