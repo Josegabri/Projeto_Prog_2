@@ -3,9 +3,18 @@ package Entities;
 import java.util.Random;
 import java.util.Scanner;
 
+import ClassesInimigos.Aranha_Gigante;
+import ClassesInimigos.Carcaju;
+import ClassesInimigos.Carnical;
 import ClassesInimigos.Caveira;
+import ClassesInimigos.Cobra_Peconhenta;
+import ClassesInimigos.Enxame_de_Aranhas;
 import ClassesInimigos.Fungo;
+import ClassesInimigos.Homunculo;
 import ClassesInimigos.Inimigo;
+import ClassesInimigos.Morcego;
+import ClassesInimigos.Rastejante_Tenebroso;
+import ClassesInimigos.Sanguessuga_Gigante;
 import ClassesJogador.Arqueiro;
 import ClassesJogador.Guerreiro;
 import ClassesJogador.Jogador;
@@ -60,6 +69,24 @@ public class Batalha {
                 return new Caveira("Caveira", this.fase);
             case 1:
                 return new Fungo("Fungo", this.fase);
+            case 2: 
+                return new Aranha_Gigante("Aranha Gigante", this.fase);
+            case 3: 
+                return new Enxame_de_Aranhas("Enxame de Aranhas", this.fase);
+            case 4: 
+                return new Carcaju("Carcajú", this.fase);
+            case 5 : 
+                return new Carnical("Carniçal", this.fase);
+            case 6 : 
+                return new Rastejante_Tenebroso("Rastejante Tenebroso", this.fase);
+            case 7 : 
+                return new Sanguessuga_Gigante("Sanguessuga Gigante", this.fase);
+            case 8 : 
+                return new Morcego("Morcego", this.fase);
+            case 9 : 
+                return new Homunculo("Homúnculo", this.fase);
+            case 10 : 
+                return new Cobra_Peconhenta("Cobra Peçonhenta", this.fase);
             default:
                 return null;
         }
@@ -70,7 +97,7 @@ public class Batalha {
     public void batalha(int fase_sel) {
         this.fase = fase_sel;
         Jogador jogador = escolha(this.opcao);
-        Inimigo inimigo = inimigo(this.aleatorio.nextInt(2));
+        Inimigo inimigo = inimigo(this.aleatorio.nextInt(11));
 
         // código do desenvolvimento da batalha
         jogador = new ItemDecorator(this.nome, jogador);
