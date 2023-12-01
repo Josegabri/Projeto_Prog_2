@@ -22,6 +22,7 @@ import ClassesJogador.Mago;
 import ClassesJogador.ItemDecorator;
 
 public class Batalha {
+    private static final String String = null;
     Scanner scanner = new Scanner(System.in);
     private String nome;
     private int opcao;
@@ -94,7 +95,7 @@ public class Batalha {
     // Adicionar um "inimigo_2" igual o inimigo a cima, em que só irá ter
     // inimigos de nível 2 nas escolhas, e assim por diante.
 
-    public void batalha(int fase_sel) {
+    public String batalha(int fase_sel) {
         this.fase = fase_sel;
         Jogador jogador = escolha(this.opcao);
         Inimigo inimigo = inimigo(this.aleatorio.nextInt(11));
@@ -109,7 +110,8 @@ public class Batalha {
         System.out.println("Vida do jogador: " + jogador.mostrarHp());
         System.out.println("ST do jogador: " + jogador.mostrarSt());
 
-
+        
+        do {
         while ((ganhador != jogador.nome) && (ganhador != inimigo.nome)) {
             System.out.println("Dano da habilidade do jogador: " + jogador.habilidades(1));
             if (rodada == 0) {
@@ -179,8 +181,9 @@ public class Batalha {
                     System.out.println(inimigo.nome + " está com " + inimigo.mostrarHp() + " de vida.");
                     System.out.println(jogador.nome + " está com " + jogador.mostrarHp() + " de vida.");
                     rodada = 1;
+                }
 
-                } else if (rodada == 1) {
+                else if (rodada == 1) {
                         System.out.println(jogador.nome + " recebeu "
                                 + inimigo.causarDano() + " de dano do " + inimigo.nome);
                         jogador.receberDano(inimigo.causarDano());
@@ -202,9 +205,8 @@ public class Batalha {
                         jogador.dropItem(this.opcao);
                         jogador.equiparItem();
                     }
-                }       
-            }
-        public String getGanhador() {
-        return ganhador;
+                } 
+                } while ( jogador.mostrarHp() < 0);       
+     return "\n VOCÊ PERDEU";
     }
 }

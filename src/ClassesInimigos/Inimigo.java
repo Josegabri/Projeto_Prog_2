@@ -8,7 +8,6 @@ import java.util.List;
 public abstract class Inimigo extends Propriedades{
     public static List<Inimigo> inimigos =  new ArrayList<>();
 
-
     public Inimigo(String nome) {
         super(nome);
     }

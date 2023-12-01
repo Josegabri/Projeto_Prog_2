@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import ClassesInimigos.Inimigo;
 import ClassesJogador.Jogador;
 import ClassesJogador.Mago;
 import Entities.Batalha;
@@ -18,14 +19,15 @@ public class Main {
         scanner.nextLine();
         Batalha batalha = new Batalha(nome, classe);
         
-        batalha.batalha(1);
+        // Organizar laço For, com mudança de nível até a morte do personagem
+        // Com escolha da repetição do nível, ou prosseguir para o próximo.
         
-        System.out.println("ROUND 2");
+       
 
-        batalha.batalha(2);
-        System.out.println("ROUND 3");
-        batalha.batalha(3);
-
+        for (int i = 0 ; i< 10; i++){
+            System.out.println("\n ROUND"+ (i+1));
+            batalha.batalha(i);
+        }
         scanner.close();
     }
 }
