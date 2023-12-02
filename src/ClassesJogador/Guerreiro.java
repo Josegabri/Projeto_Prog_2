@@ -14,8 +14,8 @@ public class Guerreiro extends Jogador {
     protected static double exp = 0;
     protected static double min_exp = nivel * 8;
     protected static double danoItem = 0;
-    protected double hpItem = 0;
-    protected double stItem = 0;
+    protected static double hpItem = 0;
+    protected static double stItem = 0;
     protected String nomeItem;
 
 
@@ -179,6 +179,11 @@ public class Guerreiro extends Jogador {
 
     @Override
     public void mostrarInventario() {
+
+    }
+
+    @Override
+    public void desejaEquipar() {
 
     }
 

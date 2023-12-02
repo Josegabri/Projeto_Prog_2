@@ -15,8 +15,8 @@ public class Arqueiro extends Jogador{
     protected static double min_exp = nivel* 10;
     protected String nomeItem;
     protected static double danoItem = 0;
-    protected double hpItem = 0;
-    protected double stItem = 0;
+    protected static double hpItem = 0;
+    protected static double stItem = 0;
 
 
     public Arqueiro(String nome) {
@@ -179,6 +179,11 @@ public class Arqueiro extends Jogador{
 
     @Override
     public void mostrarInventario() {
+
+    }
+
+    @Override
+    public void desejaEquipar() {
 
     }
 

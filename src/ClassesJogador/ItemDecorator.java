@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 //Decorador Item para a classe jogador
 public class ItemDecorator extends Jogador {
+    Scanner scanner = new Scanner(System.in);
 
     private final Jogador jogador;
     public ItemDecorator(String nome, Jogador jogador) {
@@ -271,6 +272,15 @@ public class ItemDecorator extends Jogador {
         for (String item : inventarioNome) {
             cont++;
             System.out.println(cont  + " ---> " + item);
+        }
+    }
+
+    @Override
+    public void desejaEquipar() {
+        System.out.println("Deseja equipar algum item ? \nDigite 1 para sim \nDigite 0 para não \n");
+        int opcao = scanner.nextInt();
+        if (opcao == 1){
+            jogador.equiparItem();
         }
     }
 

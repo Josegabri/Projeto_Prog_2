@@ -11,8 +11,8 @@ public class Mago extends Jogador {
     protected static double min_exp = nivel * 15;
     protected String nomeItem;
     protected static double danoItem = 0;
-    protected double hpItem = 0;
-    protected double stItem = 0;
+    protected static double hpItem = 0;
+    protected static double stItem = 0;
     protected Scanner scanner = new Scanner(System.in);
 
 
@@ -129,8 +129,12 @@ public class Mago extends Jogador {
     @Override
     public void setStItem(Double stItem) {
         st -= this.stItem;
+        System.out.println("Valor do ST item e do item: " + st + " " + this.stItem);
         this.stItem = stItem;
+        System.out.println("Valor do item ST: " + this.stItem);
         st += this.stItem;
+        System.out.println("Valor do ST com item: " + st);
+
     }
 
     @Override
@@ -172,6 +176,11 @@ public class Mago extends Jogador {
 
     @Override
     public void mostrarInventario() {
+
+    }
+
+    @Override
+    public void desejaEquipar() {
 
     }
 

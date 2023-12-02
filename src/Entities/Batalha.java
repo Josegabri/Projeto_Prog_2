@@ -187,6 +187,9 @@ public class Batalha {
                         System.out.println("Você não tem ST o suficiente para usar habilidades");
                         continue;
                     }
+                } else {
+                    jogador.equiparItem();
+                    continue;
                 }
 
                     System.out.println(inimigo.nome + " está com " + inimigo.mostrarHp() + " de vida.");
@@ -210,23 +213,11 @@ public class Batalha {
                     } else if (inimigo.mostrarHp() <= 0) { // jogador vencedor
                         ganhador = jogador.nome;
                         System.out.println("\nO vencedor da batalha foi " + jogador.nome);
-
                         jogador.aumentarNivel(inimigo.mostrarDropexp());
                         this.totalSt = jogador.mostrarSt();
                         jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
-                        jogador.dropItem(this.opcao);
 
-                        System.out.println("Deseja equipar algum item ? \nDigite 1 para sim \nDigite 0 para não \n");
-                        int opcao = scanner.nextInt();
-                        if (opcao == 1){
-                            jogador.equiparItem();
-                        }
+                        jogador.desejaEquipar();
                    }
                 } 
                 } while ( jogador.mostrarHp() <= 0);

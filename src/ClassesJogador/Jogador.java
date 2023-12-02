@@ -35,6 +35,7 @@ public abstract class Jogador extends Propriedades{
     public abstract double habilidades(int escolha);
     public abstract void mostrarHabilidades(int opcao);
     public abstract void mostrarInventario();
+    public abstract void desejaEquipar();
 
 
 }

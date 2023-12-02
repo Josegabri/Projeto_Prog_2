@@ -167,6 +167,11 @@ public class ClasseHabilidade extends ItemDecorator {
     }
 
     @Override
+    public void desejaEquipar() {
+        super.desejaEquipar();
+    }
+
+    @Override
     public void mostrarHabilidades(int opcao) {
         switch (opcao) {
             case 1:
