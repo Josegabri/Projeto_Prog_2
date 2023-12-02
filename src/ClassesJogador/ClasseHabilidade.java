@@ -128,16 +128,12 @@ public class ClasseHabilidade extends ItemDecorator {
     @Override
     public double habilidades(int escolha) {
         if (escolha == 1) {
-            super.setSt(super.mostrarSt() - (super.mostrarSt() * (20.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (10.0 / 100.0));
         } else if (escolha == 2) {
-            super.setSt(super.mostrarSt() - (super.mostrarSt() * (40.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (40.0 / 100.0));
         } else if (escolha == 3) {
-            super.setSt(super.mostrarSt() - (super.mostrarSt() * (60.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (60.0 / 100.0));
         } else {
-            super.setSt(super.mostrarSt() - (super.mostrarSt() * (80.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (80.0 / 100.0));
         }
     }
@@ -266,12 +262,24 @@ public class ClasseHabilidade extends ItemDecorator {
     @Override
     public void mostrarHabilidades(int opcao) {
         switch (opcao) {
-            case 1 ->
-                    System.out.println("Qual habilidade você deseja usar: \n1 --> Bola de fogo \n2 --> Chama negra \n3 --> Choque do trovão \n4 --> Chuva de meteoro");
-            case 2 ->
-                    System.out.println("Qual habilidade você deseja usar: \n1 --> Espada perfurante \n2 --> Tormenta de aço \n3 --> Espada flamejante \n4 --> Santoryu");
-            case 3 ->
-                    System.out.println("Qual habilidade você de seja usar: \n1 --> Flecha estuneante \n2 --> Flecha avassaladora \n3 --> Flecha sonica \n4 --> Flecha divina");
+            case 1:
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Bola de fogo"+
+                            "\n2 --> Chama negra"+
+                            "\n3 --> Choque do trovão"+
+                            "\n4 --> Chuva de meteoro \n");
+                    break;
+            case 2:
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Espada perfurante"+
+                            "\n2 --> Tormenta de aço"+
+                            "\n3 --> Espada flamejante"+
+                            "\n4 --> Santoryu \n");
+                    break;
+            case 3:
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Flecha estuneante"+
+                            "\n2 --> Flecha avassaladora"+
+                            "\n3 --> Flecha sonica"+
+                            "\n4 --> Flecha divina \n");
+                    break;
         }
     }
 

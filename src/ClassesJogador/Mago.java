@@ -38,7 +38,7 @@ public class Mago extends Jogador {
 
     @Override
     public double mostrarDano() {
-        return dano + this.danoItem;
+        return dano + danoItem;
     }
 
     @Override

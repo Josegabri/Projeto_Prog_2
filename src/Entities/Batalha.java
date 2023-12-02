@@ -129,9 +129,14 @@ public class Batalha {
                 } else if (acao == 2) {
                     System.out.println("Esse é o ST total do jogador: " + this.totalSt + " E esse é o ST atual: " + jogador.mostrarSt());
                     jogador.mostrarHabilidades(this.opcao);
+                    System.out.println("Custo da habilidade 1: "+ this.totalSt * (20.0 / 100.0) +
+                            "\nCusto da habilidade 2: "+ this.totalSt * (40.0 / 100.0) +
+                            "\nCusto da habilidade 3: "+ this.totalSt * (60.0 / 100.0) +
+                            "\nCusto da habilidade 4: "+ this.totalSt * (80.0 / 100.0));
                     int escolha = scanner.nextInt();
-                    if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (20.0 / 100.0)) {
+                    if (jogador.mostrarSt() >= this.totalSt * (20.0 / 100.0)) {
                         if (escolha == 1) {
+                            jogador.setSt(jogador.mostrarSt() - this.totalSt * (20.0 / 100.0));
                             System.out.println("Escolheu a habilidade: " + escolha);
                             System.out.println(inimigo.nome + " recebeu "
                              + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
@@ -139,8 +144,8 @@ public class Batalha {
                             System.out.println("Você possui "+ jogador.mostrarSt() + " de st atualmente"  );
 
                         }else if (escolha == 2) {
-
-                            if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (40.0 / 100.0)) {
+                            if (jogador.mostrarSt() >= this.totalSt * (40.0 / 100.0)) {
+                                jogador.setSt(jogador.mostrarSt() - this.totalSt * (40.0 / 100.0));
                                 System.out.println(inimigo.nome + " recebeu "
                                  + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
@@ -152,7 +157,8 @@ public class Batalha {
                                 continue;
                             }
                         } else if (escolha == 3) {
-                            if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (60.0 / 100.0)) {
+                            if (jogador.mostrarSt() >= this.totalSt * (60.0 / 100.0)) {
+                                jogador.setSt(jogador.mostrarSt() - this.totalSt * (60.0 / 100.0));
                                 System.out.println(inimigo.nome + " recebeu "
                                 + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
@@ -165,7 +171,8 @@ public class Batalha {
                         }else if (escolha == 4) {
                             System.out.println("Esse é o ST total do jogador: " + this.totalSt + " E esse é o ST atual: " + jogador.mostrarSt());
 
-                            if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (80.0 / 100.0)) {
+                            if (jogador.mostrarSt() >= this.totalSt * (80.0 / 100.0)) {
+                                jogador.setSt(jogador.mostrarSt() - this.totalSt * (80.0 / 100.0));
                                 System.out.println(inimigo.nome + " recebeu "
                                         + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
@@ -207,10 +214,10 @@ public class Batalha {
                         jogador.aumentarNivel(inimigo.mostrarDropexp());
                         this.totalSt = jogador.mostrarSt();
                         jogador.dropItem(this.opcao);
-                        jogador.equiparItem();
+//                        jogador.equiparItem();
                     }
                 } 
-                } while ( jogador.mostrarHp() < 0);       
+                } while ( jogador.mostrarHp() <= 0);
      return "\n VOCÊ PERDEU";
     }
 }
