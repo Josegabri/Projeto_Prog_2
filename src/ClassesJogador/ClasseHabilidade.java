@@ -128,13 +128,13 @@ public class ClasseHabilidade extends ItemDecorator {
     @Override
     public double habilidades(int escolha) {
         if (escolha == 1) {
-            return super.causarDano() + (super.causarDano() * (10.0 / 100.0));
+            return Math.ceil(super.causarDano() + (super.causarDano() * (10.0 / 100.0)));
         } else if (escolha == 2) {
-            return super.causarDano() + (super.causarDano() * (40.0 / 100.0));
+            return Math.ceil(super.causarDano() + (super.causarDano() * (40.0 / 100.0)));
         } else if (escolha == 3) {
-            return super.causarDano() + (super.causarDano() * (60.0 / 100.0));
+            return Math.ceil(super.causarDano() + (super.causarDano() * (60.0 / 100.0)));
         } else {
-            return super.causarDano() + (super.causarDano() * (80.0 / 100.0));
+            return Math.ceil(super.causarDano() + (super.causarDano() * (80.0 / 100.0)));
         }
     }
 

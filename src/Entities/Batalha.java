@@ -214,7 +214,7 @@ public class Batalha {
                         jogador.aumentarNivel(inimigo.mostrarDropexp());
                         this.totalSt = jogador.mostrarSt();
                         jogador.dropItem(this.opcao);
-//                        jogador.equiparItem();
+                        jogador.equiparItem();
                     }
                 } 
                 } while ( jogador.mostrarHp() <= 0);

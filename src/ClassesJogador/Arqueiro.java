@@ -84,9 +84,9 @@ public class Arqueiro extends Jogador{
             System.out.println("Você possui " + exp +" no nivel " + nivel);
             System.out.println("Você precisa de " + min_exp + " Para ir ao próximo nivel!!!!!!!!!!!");
             System.out.println("Seus Status aumentaram!!!!");
-            System.out.println("Dano aumentado em: " + dano*(10.0/100.0));
-            System.out.println("HP aumentado em: " + hp*(10.0/100.0));
-            System.out.println("ST aumentado em: " + st*(10.0/100.0));
+            System.out.println("Dano aumentado em: " + Math.ceil(dano*(10.0/100.0)));
+            System.out.println("HP aumentado em: " + Math.ceil(hp*(10.0/100.0)));
+            System.out.println("ST aumentado em: " + Math.ceil(st*(10.0/100.0)));
             this.aumentarStatus();
 
         } else {
