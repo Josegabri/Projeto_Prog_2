@@ -24,6 +24,7 @@ public class Batalha {
     private int opcao;
     private String ganhador;
     private int fase;
+    private double totalSt;
 
     //private Item item;
     private Random aleatorio = new Random();
@@ -50,10 +51,13 @@ public class Batalha {
         opcao = this.opcao;
         switch (this.opcao) {
             case 1:
+                this.totalSt = 10.0;
                 return new Mago(this.nome);
             case 2:
+                this.totalSt = 10.0;
                 return new Guerreiro(this.nome);
             case 3:
+                this.totalSt = 10;
                 return new Arqueiro(this.nome);
             default:
                 return null;
@@ -100,7 +104,6 @@ public class Batalha {
         jogador = new ItemDecorator(this.nome, jogador);
 
         jogador = new ClasseHabilidade(this.nome, jogador);
-
         int rodada = 0;
         ganhador = null;
         System.out.println("\n" + inimigo.nome + " APARECEU!!\n");
@@ -111,7 +114,6 @@ public class Batalha {
         
         do {
         while ((ganhador != jogador.nome) && (ganhador != inimigo.nome)) {
-            System.out.println("Dano da habilidade do jogador: " + jogador.habilidades(1));
             if (rodada == 0) {
                 System.out.println("Escolha sua ação: ");
                 System.out.println("1 - Ataque Básico");
@@ -125,18 +127,20 @@ public class Batalha {
                             + jogador.causarDano() + " de dano do " + jogador.nome);
                     inimigo.receberDano(jogador.causarDano());
                 } else if (acao == 2) {
+                    System.out.println("Esse é o ST total do jogador: " + this.totalSt + " E esse é o ST atual: " + jogador.mostrarSt());
                     jogador.mostrarHabilidades(this.opcao);
-                    System.out.println("Você possui "+ jogador.mostrarSt() + " de St"  );
                     int escolha = scanner.nextInt();
-                    if (jogador.mostrarSt() >= jogador.mostrarSt() - jogador.mostrarSt() * (20.0 / 100.0)) {
+                    if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (20.0 / 100.0)) {
                         if (escolha == 1) {
                             System.out.println("Escolheu a habilidade: " + escolha);
                             System.out.println(inimigo.nome + " recebeu "
                              + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                             inimigo.receberDano(jogador.habilidades(escolha));
                             System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+
                         }else if (escolha == 2) {
-                            if (jogador.mostrarSt() >= jogador.mostrarSt() - jogador.mostrarSt() * (40.0 / 100.0)) {
+
+                            if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (40.0 / 100.0)) {
                                 System.out.println(inimigo.nome + " recebeu "
                                  + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
@@ -148,7 +152,7 @@ public class Batalha {
                                 continue;
                             }
                         } else if (escolha == 3) {
-                            if (jogador.mostrarSt() >= jogador.mostrarSt() - jogador.mostrarSt() * (60.0 / 100.0)) {
+                            if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (60.0 / 100.0)) {
                                 System.out.println(inimigo.nome + " recebeu "
                                 + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
@@ -159,7 +163,9 @@ public class Batalha {
                                 continue;
                             }
                         }else if (escolha == 4) {
-                            if (jogador.mostrarSt() >= jogador.mostrarSt() - jogador.mostrarSt() * (80.0 / 100.0)) {
+                            System.out.println("Esse é o ST total do jogador: " + this.totalSt + " E esse é o ST atual: " + jogador.mostrarSt());
+
+                            if (jogador.mostrarSt() >= this.totalSt - this.totalSt * (80.0 / 100.0)) {
                                 System.out.println(inimigo.nome + " recebeu "
                                         + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
@@ -199,7 +205,7 @@ public class Batalha {
                         System.out.println("\nO vencedor da batalha foi " + jogador.nome);
 
                         jogador.aumentarNivel(inimigo.mostrarDropexp());
-
+                        this.totalSt = jogador.mostrarSt();
                         jogador.dropItem(this.opcao);
                         jogador.equiparItem();
                     }

@@ -80,8 +80,8 @@ public class Mago extends Jogador {
             System.out.println("Você precisa de " + min_exp + " Para ir ao próximo nivel!!!!!!!!!!!");
             System.out.println("Seus Status aumentaram!!!!");
             System.out.println("Dano aumentado em: " + dano * (10.0 / 100.0));
-            System.out.println("Dano aumentado em: " + hp * (10.0 / 100.0));
-            System.out.println("Dano aumentado em: " + st * (10.0 / 100.0));
+            System.out.println("HP aumentado em: " + hp * (10.0 / 100.0));
+            System.out.println("ST aumentado em: " + st * (10.0 / 100.0));
             this.aumentarStatus();
 
         } else {
@@ -167,6 +167,11 @@ public class Mago extends Jogador {
 
     @Override
     public void mostrarHabilidades(int opcao) {
+
+    }
+
+    @Override
+    public void mostrarInventario() {
 
     }
 

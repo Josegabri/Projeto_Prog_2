@@ -2,10 +2,13 @@ package ClassesJogador;
 
 import java.util.Random;
 
-public class ClasseHabilidade extends ItemDecorator{
+public class ClasseHabilidade extends ItemDecorator {
+    public static double stTotal;
+
     public ClasseHabilidade(String nome, Jogador jogador) {
         super(nome, jogador);
     }
+
 
     public void equiparItem() {
         super.equiparItem();
@@ -98,11 +101,6 @@ public class ClasseHabilidade extends ItemDecorator{
     }
 
     @Override
-    public void mostrarInventario() {
-        super.mostrarInventario();
-    }
-
-    @Override
     public double causarDano() {
         return super.causarDano();
     }
@@ -130,16 +128,16 @@ public class ClasseHabilidade extends ItemDecorator{
     @Override
     public double habilidades(int escolha) {
         if (escolha == 1) {
-            super.setSt(super.mostrarSt() - (super.mostrarSt()* (20.0 / 100.0)));
-            return super.causarDano() + (super.causarDano()*(10.0 / 100.0));
+            super.setSt(super.mostrarSt() - (super.mostrarSt() * (20.0 / 100.0)));
+            return super.causarDano() + (super.causarDano() * (10.0 / 100.0));
         } else if (escolha == 2) {
-            super.setSt(super.mostrarSt() - (super.mostrarSt()* (40.0 / 100.0)));
+            super.setSt(super.mostrarSt() - (super.mostrarSt() * (40.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (40.0 / 100.0));
         } else if (escolha == 3) {
-            super.setSt(super.mostrarSt() - (super.mostrarSt()* (60.0 / 100.0)));
+            super.setSt(super.mostrarSt() - (super.mostrarSt() * (60.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (60.0 / 100.0));
         } else {
-            super.setSt(super.mostrarSt() - (super.mostrarSt()* (80.0 / 100.0)));
+            super.setSt(super.mostrarSt() - (super.mostrarSt() * (80.0 / 100.0)));
             return super.causarDano() + (super.causarDano() * (80.0 / 100.0));
         }
     }
@@ -150,26 +148,26 @@ public class ClasseHabilidade extends ItemDecorator{
     public void dropItem(int opcao) {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
-        if(opcao == 1){
-            if (valor <= 49){
+        if (opcao == 1) {
+            if (valor <= 49) {
                 itemMago();
-            } else if (valor <= 99){
+            } else if (valor <= 99) {
                 itemHp();
             } else {
                 itemSt();
             }
-        } else if(opcao == 2){
-            if (valor <= 99){
+        } else if (opcao == 2) {
+            if (valor <= 99) {
                 itemGuerreiro();
-            } else if (valor <= 99){
+            } else if (valor <= 99) {
                 itemHp();
             } else {
                 itemSt();
             }
         } else {
-            if (valor <= 49){
+            if (valor <= 49) {
                 itemArqueiro();
-            } else if (valor <= 99){
+            } else if (valor <= 99) {
                 itemHp();
             } else {
                 itemSt();
@@ -227,7 +225,7 @@ public class ClasseHabilidade extends ItemDecorator{
     }
 
     @Override
-    public void itemHp(){
+    public void itemHp() {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
@@ -243,7 +241,7 @@ public class ClasseHabilidade extends ItemDecorator{
 
 
     @Override
-    public void itemSt(){
+    public void itemSt() {
         Random aleatorio = new Random();
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
@@ -258,16 +256,24 @@ public class ClasseHabilidade extends ItemDecorator{
     }
 
     @Override
-    public void mostrarHabilidades(int opcao){
-        switch (opcao) {
-            case 1 ->
-                    System.out.println("Qual habilidade você deseja usar: \n1 --> Bola de fogo \n 2 --> Chama negra \n 3 --> Choque do trovão \n 4 --> Chuva de meteoro");
-            case 2 ->
-                    System.out.println("Qual habilidade você deseja usar: \n1 --> Espada perfurante \n 2 --> Tormenta de aço \n 3 --> Espada flamejante \n 4 --> Santoryu");
-            case 3 ->
-                    System.out.println("Qual habilidade você de seja usar: \n1 --> Flecha estuneante \n 2 --> Flecha avassaladora \n 3 --> Flecha sonica \n 4 --> Flecha divina");
+    public void mostrarInventario() {
+        System.out.println("Você tem os seguintes itens no iventário: ");
+        for (String item : inventarioNome) {
+            System.out.println(inventarioNome.indexOf(item) + 1 + " ---> " + item);
         }
     }
+
+    @Override
+    public void mostrarHabilidades(int opcao) {
+        switch (opcao) {
+            case 1 ->
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Bola de fogo \n2 --> Chama negra \n3 --> Choque do trovão \n4 --> Chuva de meteoro");
+            case 2 ->
+                    System.out.println("Qual habilidade você deseja usar: \n1 --> Espada perfurante \n2 --> Tormenta de aço \n3 --> Espada flamejante \n4 --> Santoryu");
+            case 3 ->
+                    System.out.println("Qual habilidade você de seja usar: \n1 --> Flecha estuneante \n2 --> Flecha avassaladora \n3 --> Flecha sonica \n4 --> Flecha divina");
+        }
+    }
+
+
 }
-
-

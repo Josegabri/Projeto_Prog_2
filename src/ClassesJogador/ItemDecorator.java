@@ -100,11 +100,6 @@ public class ItemDecorator extends Jogador {
     }
 
     @Override
-    public void mostrarInventario() {
-        jogador.mostrarInventario();
-    }
-
-    @Override
     public double causarDano() {
         return jogador.causarDano();
     }
@@ -266,6 +261,14 @@ public class ItemDecorator extends Jogador {
             }
         }else{
             System.out.println("Você não possui nenhum item");
+        }
+    }
+
+    @Override
+    public void mostrarInventario() {
+        System.out.println("Você tem os seguintes itens no iventário: ");
+        for (String item : inventarioNome) {
+            System.out.println(inventarioNome.indexOf(item) + 1  + " ---> " + item);
         }
     }
 

@@ -25,8 +25,6 @@ public abstract class Jogador extends Propriedades{
     public abstract double getDanoItem();
     public abstract double getHpItem();
     public abstract double getStItem();
-
-
     public abstract String getNomeItem();
     public abstract void setDanoItem(Double danoItem);
     public abstract void setStItem(Double stItem);
@@ -36,14 +34,7 @@ public abstract class Jogador extends Propriedades{
     public abstract void equiparItem();
     public abstract double habilidades(int escolha);
     public abstract void mostrarHabilidades(int opcao);
-
-
-    public void mostrarInventario() {
-        System.out.println("Você tem os seguintes itens no iventário: ");
-        for (String item : inventarioNome) {
-            System.out.println(inventarioNome.indexOf(item) + 1  + " ---> " + item);
-        }
-    }
+    public abstract void mostrarInventario();
 
 
 }
