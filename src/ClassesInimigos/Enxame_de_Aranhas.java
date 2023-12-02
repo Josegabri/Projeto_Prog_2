@@ -41,8 +41,8 @@ public class Enxame_de_Aranhas extends Inimigo {
     @Override
     public void nivel(int fase) {
         this.nivel -= fase;
-        this.dano += this.dano*(this.nivel*10.0/100.0);
-        this.hp += this.hp*(this.nivel*10.0/100.0);
+        this.dano += Math.ceil(this.dano*(this.nivel*10.0/100.0));
+        this.hp += Math.ceil(this.hp*(this.nivel*10.0/100.0));
         this.nivel = fase;
     }
 
