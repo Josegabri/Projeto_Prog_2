@@ -57,12 +57,12 @@ public class Arqueiro extends Jogador{
     @Override
     public double receberDano(double dano) {
         hp -= dano;
-        return hp;
+        return Math.ceil(hp);
     }
 
     @Override
     public double mostrarHp() {
-        return hp;
+        return Math.ceil(hp);
     }
 
     @Override

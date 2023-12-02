@@ -21,12 +21,12 @@ public class Sanguessuga_Gigante extends Inimigo{
     @Override
     public double receberDano(double dano) {
         this.hp -= dano;
-        return this.hp;
+        return Math.ceil(this.hp);
     }
 
     @Override
     public double mostrarHp() {
-        return this.hp;
+        return Math.ceil(this.hp);
     }
 
     @Override
