@@ -204,7 +204,7 @@ public class Batalha {
                                 " de vida.");
                         rodada = 0;
                     }
-                   if (jogador.mostrarHp() <= 0) { // inimigo vencedor
+                    if (jogador.mostrarHp() <= 0) { // inimigo vencedor
                         ganhador = inimigo.nome;
                         System.out.println("\nO vencedor da batalha foi " + inimigo.nome);
                     } else if (inimigo.mostrarHp() <= 0) { // jogador vencedor
@@ -214,8 +214,20 @@ public class Batalha {
                         jogador.aumentarNivel(inimigo.mostrarDropexp());
                         this.totalSt = jogador.mostrarSt();
                         jogador.dropItem(this.opcao);
-                        jogador.equiparItem();
-                    }
+                        jogador.dropItem(this.opcao);
+                        jogador.dropItem(this.opcao);
+                        jogador.dropItem(this.opcao);
+                        jogador.dropItem(this.opcao);
+                        jogador.dropItem(this.opcao);
+                        jogador.dropItem(this.opcao);
+                        jogador.dropItem(this.opcao);
+
+                        System.out.println("Deseja equipar algum item ? \nDigite 1 para sim \nDigite 0 para não \n");
+                        int opcao = scanner.nextInt();
+                        if (opcao == 1){
+                            jogador.equiparItem();
+                        }
+                   }
                 } 
                 } while ( jogador.mostrarHp() <= 0);
      return "\n VOCÊ PERDEU";

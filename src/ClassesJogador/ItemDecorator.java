@@ -267,8 +267,10 @@ public class ItemDecorator extends Jogador {
     @Override
     public void mostrarInventario() {
         System.out.println("Você tem os seguintes itens no iventário: ");
+        int cont = 0;
         for (String item : inventarioNome) {
-            System.out.println(inventarioNome.indexOf(item) + 1  + " ---> " + item);
+            cont++;
+            System.out.println(cont  + " ---> " + item);
         }
     }
 
