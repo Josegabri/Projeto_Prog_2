@@ -136,7 +136,7 @@ public class Batalha {
                             System.out.println(inimigo.nome + " recebeu "
                              + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                             inimigo.receberDano(jogador.habilidades(escolha));
-                            System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                            System.out.println("Você possui "+ jogador.mostrarSt() + " de st atualmente"  );
 
                         }else if (escolha == 2) {
 
@@ -144,11 +144,11 @@ public class Batalha {
                                 System.out.println(inimigo.nome + " recebeu "
                                  + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
-                                System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                                System.out.println("Você possui "+ jogador.mostrarSt() + " de ST atualmente"  );
 
                             }else {
                                 System.out.println("Você não tem ST o suficiente para usar esta habilidade");
-                                System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                                System.out.println("Você possui "+ jogador.mostrarSt() + " de ST atualmente"  );
                                 continue;
                             }
                         } else if (escolha == 3) {
@@ -156,10 +156,10 @@ public class Batalha {
                                 System.out.println(inimigo.nome + " recebeu "
                                 + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
-                                System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                                System.out.println("Você possui "+ jogador.mostrarSt() + " de ST atualmente"  );
                             }else {
                                 System.out.println("Você não tem ST o suficiente para usar esta habilidade");
-                                System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                                System.out.println("Você possui "+ jogador.mostrarSt() + " de ST atualmente"  );
                                 continue;
                             }
                         }else if (escolha == 4) {
@@ -169,10 +169,10 @@ public class Batalha {
                                 System.out.println(inimigo.nome + " recebeu "
                                         + jogador.habilidades(escolha) + " de dano do " + jogador.nome);
                                 inimigo.receberDano(jogador.habilidades(escolha));
-                                System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                                System.out.println("Você possui "+ jogador.mostrarSt() + " de ST atualmente"  );
                             } else {
                                 System.out.println("Você não tem ST o suficiente para usar esta habilidade");
-                                System.out.println("Você possui "+ jogador.mostrarSt() + " atualmente"  );
+                                System.out.println("Você possui "+ jogador.mostrarSt() + " de ST atualmente"  );
                                 continue;
                             }
                         }
