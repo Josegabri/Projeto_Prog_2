@@ -42,6 +42,7 @@ public class Cobra_Peconhenta extends Inimigo {
     public void nivel(int fase) {
         this.dano += Math.ceil(this.dano*(this.nivel*10.0/100.0));
         this.hp += Math.ceil(this.hp*(this.nivel*10.0/100.0));
+        this.dropExp += Math.ceil(this.dropExp*(this.nivel*10.0/100.0));
         this.nivel = fase;
     }
 
