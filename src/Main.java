@@ -1,17 +1,24 @@
 import java.util.Scanner;
-
-import ClassesInimigos.Inimigo;
-import ClassesJogador.Jogador;
-import ClassesJogador.Mago;
 import Entities.Batalha;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("\n" + //
+                "  █████▒██▓    ▄▄▄       ██▀███   ██▓ ███▄    █ ▄▄▄█████▓ ██░ ██  ██▓▄▄▄      ███▄    █   ██████     ██▀███   ██▓███    ▄████ \n" + //
+                "▓██   ▒▓██▒   ▒████▄    ▓██ ▒ ██▒▓██▒ ██ ▀█   █ ▓  ██▒ ▓▒▓██░ ██▒▓██▒████▄    ██ ▀█   █ ▒██    ▒    ▓██ ▒ ██▒▓██░  ██▒ ██▒ ▀█▒\n" + //
+                "▒████ ░▒██░   ▒██  ▀█▄  ▓██ ░▄█ ▒▒██▒▓██  ▀█ ██▒▒ ▓██░ ▒░▒██▀▀██░▒██▒██  ▀█▄ ▓██  ▀█ ██▒░ ▓██▄      ▓██ ░▄█ ▒▓██░ ██▓▒▒██░▄▄▄░\n" + //
+                "░▓█▒  ░▒██░   ░██▄▄▄▄██ ▒██▀▀█▄  ░██░▓██▒  ▐▌██▒░ ▓██▓ ░ ░▓█ ░██ ░██░██▄▄▄▄██▓██▒  ▐▌██▒  ▒   ██▒   ▒██▀▀█▄  ▒██▄█▓▒ ▒░▓█  ██▓\n" + //
+                "░▒█░   ░██████▒▓█   ▓██▒░██▓ ▒██▒░██░▒██░   ▓██░  ▒██▒ ░ ░▓█▒░██▓░██░▓█   ▓██▒██░   ▓██░▒██████▒▒   ░██▓ ▒██▒▒██▒ ░  ░░▒▓███▀▒\n" + //
+                " ▒ ░   ░ ▒░▓  ░▒▒   ▓▒█░░ ▒▓ ░▒▓░░▓  ░ ▒░   ▒ ▒   ▒ ░░    ▒ ░░▒░▒░▓  ▒▒   ▓▒█░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░   ░ ▒▓ ░▒▓░▒▓▒░ ░  ░ ░▒   ▒ \n" + //
+                " ░     ░ ░ ▒  ░ ▒   ▒▒ ░  ░▒ ░ ▒░ ▒ ░░ ░░   ░ ▒░    ░     ▒ ░▒░ ░ ▒ ░ ▒   ▒▒ ░ ░░   ░ ▒░░ ░▒  ░ ░     ░▒ ░ ▒░░▒ ░       ░   ░ \n" + //
+                " ░ ░     ░ ░    ░   ▒     ░░   ░  ▒ ░   ░   ░ ░   ░       ░  ░░ ░ ▒ ░ ░   ▒     ░   ░ ░ ░  ░  ░       ░░   ░ ░░       ░ ░   ░ \n" + //
+                "           ░  ░     ░  ░   ░      ░           ░           ░  ░  ░ ░       ░  ░        ░       ░        ░                    ░ \n" + //
+                "                                                                                                                              \n" + //
+                "");        
         System.out.print("Escolha seu nome: ");
         String nome = scanner.nextLine();
-        System.out.print("Escolha sua classe: ");
+        System.out.print("\nEscolha sua classe: ");
         System.out.println("\n1 - Mago");
         System.out.println("2 - Guerreiro");
         System.out.println("3 - Arqueiro");
@@ -24,9 +31,18 @@ public class Main {
         
        
 
-        for (int i = 0 ; i< 10; i++){
-            System.out.println("\n ROUND"+ (i+1));
+        for (int i = 0 ; i< 200; i++){
+            System.out.println("\n FASE "+ (i+1));
             batalha.batalha(i);
+            System.out.println(" \nVOCÊ DESEJA REPETIR A FASE? (1 - SIM | 2 - NÃO)");
+            int escolha = scanner.nextInt();
+            
+            while (escolha == 1){
+                batalha.batalha(i);
+                System.out.println(" \nVOCÊ DESEJA REPETIR A FASE? (1 - SIM | 2 - NÃO)");
+                escolha = scanner.nextInt();
+            }
+
         }
         scanner.close();
     }

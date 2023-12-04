@@ -210,6 +210,18 @@ public class Batalha {
                     if (jogador.mostrarHp() <= 0) { // inimigo vencedor
                         ganhador = inimigo.nome;
                         System.out.println("\nO vencedor da batalha foi " + inimigo.nome);
+                        System.out.println("\n" + //
+                                "  ▄████  ▄▄▄      ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███     \n" + //
+                                " ██▒ ▀█▒▒████▄   ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒   \n" + //
+                                "▒██░▄▄▄░▒██  ▀█▄ ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒   \n" + //
+                                "░▓█  ██▓░██▄▄▄▄██▒██    ▒██ ▒▓█  ▄    ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄     \n" + //
+                                "░▒▓███▀▒ ▓█   ▓██▒██▒   ░██▒░▒████▒   ░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒   \n" + //
+                                " ░▒   ▒  ▒▒   ▓▒█░ ▒░   ░  ░░░ ▒░ ░   ░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░   \n" + //
+                                "  ░   ░   ▒   ▒▒ ░  ░      ░ ░ ░  ░     ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░   \n" + //
+                                "░ ░   ░   ░   ▒  ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░    \n" + //
+                                "      ░       ░  ░      ░      ░  ░       ░ ░        ░     ░  ░   ░        \n" + //
+                                "                                                    ░                      \n" + //
+                                "");
                     } else if (inimigo.mostrarHp() <= 0) { // jogador vencedor
                         ganhador = jogador.nome;
                         System.out.println("\nO vencedor da batalha foi " + jogador.nome);
