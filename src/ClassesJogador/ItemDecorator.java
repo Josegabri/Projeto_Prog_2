@@ -170,10 +170,14 @@ public class ItemDecorator extends Jogador {
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
             this.jogador.item(5, "Cajado comum", "dano");
+            System.out.println("Item Dropado");
         } else if (valor <= 84) {
             this.jogador.item(10, "Cajado raro", "dano");
+            System.out.println("Item Dropado");
+
         } else if (valor <= 99) {
             this.jogador.item(15, "Cajado lendário", "dano");
+            System.out.println("Item Dropado");
         } else {
             System.out.println("Nenhum item dropado");
         }
@@ -183,10 +187,13 @@ public class ItemDecorator extends Jogador {
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
             this.jogador.item(5, "Espada comum", "dano");
+            System.out.println("Item Dropado");
         } else if (valor <= 84) {
             this.jogador.item(10, "Espada rara", "dano");
+            System.out.println("Item Dropado");
         } else if (valor <= 99) {
             this.jogador.item(15, "Espada lendária", "dano");
+            System.out.println("Item Dropado");
         } else {
             System.out.println("Nenhum item dropado");
         }
@@ -197,10 +204,13 @@ public class ItemDecorator extends Jogador {
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
             this.jogador.item(5, "Arco comum", "dano");
+            System.out.println("Item Dropado");
         } else if (valor <= 84) {
             this.jogador.item(10, "Arco raro", "dano");
+            System.out.println("Item Dropado");
         } else if (valor <= 99) {
             this.jogador.item(15, "Arco lendário", "dano");
+            System.out.println("Item Dropado");
         } else {
             System.out.println("Nenhum item dropado");
         }
@@ -211,10 +221,13 @@ public class ItemDecorator extends Jogador {
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
             this.jogador.item(5, "Armadura comum", "hp");
+            System.out.println("Item Dropado");
         } else if (valor <= 84) {
             this.jogador.item(10, "Armadura rara", "hp");
+            System.out.println("Item Dropado");
         } else if (valor <= 99) {
             this.jogador.item(15, "Armadura lendária", "hp");
+            System.out.println("Item Dropado");
         } else {
             System.out.println("Nenhum item dropado");
         }
@@ -225,10 +238,13 @@ public class ItemDecorator extends Jogador {
         int valor = aleatorio.nextInt(150);
         if (valor <= 49) {
             this.jogador.item(5, "Colar comum", "st");
+            System.out.println("Item Dropado");
         } else if (valor <= 84) {
             this.jogador.item(10, "Colar raro", "st");
+            System.out.println("Item Dropado");
         } else if (valor <= 99) {
             this.jogador.item(15, "Colar lendário", "st");
+            System.out.println("Item Dropado");
         } else {
             System.out.println("Nenhum item dropado");
         }
